@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 13:58:29 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/15 18:02:00 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/15 19:03:36 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ const char	*search_arguments(const char *str, int *display,
 	int			len;
 	void		*content;
 
-	i = 0;;
+	i = 0;
 	arguments_init(arguments, flags);
 	while (i < 4)
 	{

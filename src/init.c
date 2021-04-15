@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 15:38:53 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/15 17:56:47 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/15 19:04:03 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void		flags_init(t_flags flags[4])
 void		arguments_init(t_arguments arguments[4], t_flags flags[2])
 {
 	arguments[0].c = 'c';
-	arguments[1].c = 's';;
+	arguments[1].c = 's';
 	arguments[2].c = '%';
 }
