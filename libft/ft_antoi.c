@@ -6,13 +6,13 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 13:09:05 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/07 16:40:05 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/15 19:07:57 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_antoi(const char *nptr, int len)
+int	ft_antoi(const char *nptr, int len)
 {
 	int		i;
 	long	nb;
