@@ -18,7 +18,5 @@ jobs:
           git clone https://github.com/42Paris/norminette.git norminette
           cd norminette
           bundle
-          mv norminette.rb ../
-          cd ..
       - name: Norm
-        run: ./norminette.rb ./src/*.c && ./norminette.rb ./includes/*.h
+        run: cd norminette && ./norminette.rb ../src/*.c && ./norminette.rb ../includes/*.h
