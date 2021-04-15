@@ -1,0 +1,26 @@
+name: norm
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install norminette
+        run: |
+          git clone https://github.com/42School/norminette.git
+          cd norminette && pip3 install -r requirements.txt sentry-sdk
+          python3 setup.py install
+      - name: Check 42 Norm
+        run: norminette ./src/*.c && norminette ./includes/*.h
