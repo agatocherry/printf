@@ -15,7 +15,6 @@ jobs:
 
       - name: Install norminette
         run: |
-          gem install bundler:2.2.16
           git clone https://github.com/42Paris/norminette.git norminette
           cd norminette
           bundle
