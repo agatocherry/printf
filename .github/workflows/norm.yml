@@ -15,9 +15,10 @@ jobs:
 
       - name: Install norminette
         run: |
-          git clone https://github.com/42Paris/norminette.git ~/.norminette/
-          cd ~/.norminette/
+          git clone https://github.com/42Paris/norminette.git norminette
+          cd norminette
           bundle
-          alias norminette="~/.norminette/norminette.rb"
+          mv norminette.rb ../
+          cd ..
       - name: Norm
-        run: norminette ./src/*.c && norminette ./includes/*.h
+        run: ./norminette.rb ./src/*.c && ./norminette.rb ./includes/*.h
