@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/15 18:24:01 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/16 18:19:08 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 	else
 	{
 		if (str[len] == '-')
-			str++;
+			len++;
 		while (ft_isdigit(str[len]))
 			len++;
-		flags->count = ft_antoi(str, len);
+		flags->count = ft_atoi(str);
 	}
 	if (flags->count < 0)
+	{
+		flags->count *= -1;
 		flags->negative = 1;
+	}
 	return (&str[len]);
 }
 

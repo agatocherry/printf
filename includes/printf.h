@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/15 19:03:10 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/16 18:19:51 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_flags
 typedef struct	s_arguments
 {
 	char		c;
-	int			(*function)(void *);
+	void		(*function)(int *display, va_list parameters, t_flags flags[4]);
 }				t_arguments;
 
 /*
@@ -50,7 +50,7 @@ int				ft_printf(const char *str, ...);
 */
 
 void			flags_init(t_flags flags[4]);
-void			arguments_init(t_arguments arguments[3], t_flags flags[2]);
+void			arguments_init(t_arguments arguments[9]);
 
 /*
 ** flags.c
@@ -68,5 +68,9 @@ const char		*get_number(const char *str, t_flags *flags,
 
 const char		*search_arguments(const char *str, int *display,
 				t_flags flags[4], va_list parameters);
+void			argument_percent(int *display, va_list parameters,
+				t_flags flags[4]);
+void			argument_char(int *display, va_list parameters,
+				t_flags flags[4]);
 
 #endif

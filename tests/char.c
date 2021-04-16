@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uilen.c                                         :+:      :+:    :+:   */
+/*   char.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 19:06:28 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/02 14:48:32 by agcolas          ###   ########.fr       */
+/*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
+/*   Updated: 2021/04/16 18:15:14 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_uilen(unsigned int n)
+#include <stdio.h>
+#include "../includes/printf.h"
+
+int	main(void)
 {
+	int	c;
 	int	i;
 
-	i = 0;
-	while (n > 0)
+	i = -200;
+	c = -10;
+	PRINT("1 [%c]\n", 'a');
+	while (c < 410)
 	{
+		PRINT("2 [%c]\n", c);
+		PRINT("3 [%5c]\n", c);
+		PRINT("4 [%*c]\n", i, c);
+		PRINT("5 [%9c]\n", c);
+		PRINT("6 [%-15c]\n", c);
+		PRINT("7 [%-*c]\n", i, c);
+		PRINT("8 [%-9c]\n", c);
+		PRINT("9 [%c %c %c]\n", c, c, c);
+		PRINT("10 [%200c %-5c %15c]\n", c, c, c);
 		i++;
-		n /= 10;
+		c++;
 	}
-	return (i);
+	return (0);
 }

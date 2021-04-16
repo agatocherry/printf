@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:12:02 by agcolas           #+#    #+#             */
-/*   Updated: 2021/03/27 17:34:13 by agcolas          ###   ########.fr       */
+/*   Updated: 2020/11/28 18:37:28 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	sizesrc = ft_strlen(src);
 	if (size == 0)
 		return (sizesrc);
-	while (i < (size) && src[i])
+	while (i < (size - 1) && src[i])
 	{
 		dest[i] = src[i];
 		i++;
