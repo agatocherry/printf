@@ -14,5 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Tests
-        run: cd tests
-        sh tests.sh
+        run: cd tests && sh tests.sh
