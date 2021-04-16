@@ -1,37 +1,34 @@
-NAME =			libftprintf.a
+# Name
 
-SRC =			src/printf.c \
-				src/init.c \
-				src/flags.c \
-				src/arguments.c \
+NAME = libftprintf.a
 
-OBJ =			$(subst .c,.o,$(SRC))
+# Paths and files
 
-CFLAGS =		-I includes/ -I libft/ # -Wall -Werror -Wextra -I includes/ -I libft/
-CC =			gcc
-LD =			ar rc
+SRCS =	src/arguments.c \
+		src/flags.c \
+		src/init.c \
+		src/printf.c
+OBJS = ${SRCS:.c=.o}
 
-all:			$(NAME)
+#Rules
 
-OBJ :			$(OBJ)
-				$(CC) -c $(CFLAGS) $(SRC)
+all : $(NAME)
 
-$(NAME):		$(OBJ)
-				make -C libft/
-				mv libft/libft.a libftprintf.a
-				$(LD) $(NAME) $(OBJ)
-				ranlib $(NAME)
+.c.o:
+	@$(CC) $(CFLAGS) -I includes -c $< -o $(<:.c=.o)
 
-clean:
-				make -C libft/ -f Makefile clean
-				rm -f $(OBJ)
+$(NAME) : $(OBJS)
+	@ar rc $@ $^
+	@echo "Compiling $(NAME) done"
 
-fclean:			clean
-				make -C libft/ -f Makefile fclean
-				rm -f $(NAME)
+clean :
+	@echo "! Removed objects files"
+	@rm -rf $(OBJS)
 
-bonus:			$(NAME)
+fclean : clean
+	@echo "! Removed $(NAME)"
+	@rm -rf $(NAME)
 
-re:				fclean all
+re : fclean all
 
-.PHONY:			clean fclean all re
+.PHONY: all clean fclean re
