@@ -30,7 +30,7 @@ Printf is a [42 school](https://www.42.fr/) project. It consists to recode the [
 ### Installing
 Clone the repository and its dependencies :
 ```console
-$ git clone --recursive https://github.com/agatocherry/printf
+$ git clone --recursive https://github.com/agatocherry/printf.git
 ```
 
 Change it to your working directory and run :
