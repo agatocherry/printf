@@ -60,8 +60,6 @@ You can test printf like that :
 $ cd tests
 $ bash tests.sh
 ```
-<!-- Link my workflow tests -->
-I also add a [github workflow](./.github/workflows/tests.yml), feel free to use it.
 
 <!-- Norm facts -->
 ### Norm
