@@ -10,7 +10,7 @@ diff ../log/printf.log ../log/ft_printf.log > ../log/diff.log
 if [ -s ../log/diff.log ]
 then
 	echo -e "\033[1;31mK.O 😔\033[2;37m" && cat ../log/diff.log
-	rm -rf a.out && rm -rf a.out.dSYM && cd ../../ && Make fclean && exit 1
+	exit 1
 else
 	echo -e "\033[1;32mOK 😁\033[0m\033[2;37m"
 fi
