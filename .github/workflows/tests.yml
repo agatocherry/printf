@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Testing
-        run: ls && ls */*
+        run: cd tests && bash tests.sh
