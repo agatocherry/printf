@@ -17,13 +17,41 @@ cd ../ && make && cd tests/script
 if [ $var = "all" ]
 then
 	bash char.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 	bash string.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 	bash percent.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 fi
 
 if [ $var = "c" ]
 then
 	bash char.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 fi
 
 if [ $var = "s" ]
@@ -41,6 +69,13 @@ fi
 if [ $var = "p" ]
 then
 	bash percent.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 fi
 
 #Clean all
