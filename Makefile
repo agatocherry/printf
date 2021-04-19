@@ -13,7 +13,7 @@ PRINTF = src/arguments.c \
 		 src/flags.c \
 		 src/init.c \
 		 src/printf.c \
-		 src/percent.c src/char.c 
+		 src/percent.c src/char.c src/string.c
 SRC = ${STR} ${FD} ${MATH} ${MEM} ${LST} ${PRINTF}
 SRCS = ${SRC}
 OBJS = ${SRCS:.c=.o}

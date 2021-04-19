@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 15:38:53 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 18:21:08 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/19 10:26:49 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		arguments_init(t_arguments arguments[9])
 	arguments[0].c = 'c';
 	arguments[0].function = &argument_char;
 	arguments[1].c = 's';
-	arguments[1].function = &argument_percent;
+	arguments[1].function = &argument_string;
 	arguments[2].c = 'p';
 	arguments[2].function = &argument_percent;
 	arguments[3].c = 'd';

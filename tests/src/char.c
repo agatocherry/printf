@@ -6,12 +6,12 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 18:15:14 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/19 10:22:26 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../includes/printf.h"
+#include "../../includes/printf.h"
 
 int	main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 18:19:51 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/19 10:27:24 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ const char		*search_arguments(const char *str, int *display,
 void			argument_percent(int *display, va_list parameters,
 				t_flags flags[4]);
 void			argument_char(int *display, va_list parameters,
+				t_flags flags[4]);
+void			argument_string(int *display, va_list parameters,
 				t_flags flags[4]);
 
 #endif

@@ -1,60 +1,44 @@
+#Welcome message
+echo -e "\033[0mWelcome 👋\033[2;37m"
+
+#Check if have argument
+if [ $# -eq 0 ]
+then
+	echo -e "\033[2;37mPlease, tape an argument cspdiuxX% or all\033[2;37m"
+	read var
+else
+	var=$1
+fi
+
 #Compile
-cd .. && Make && cd tests
+cd ../ && Make && cd tests/script 
 
-#Announce what type of test is being done
-echo "\033[3;37mSimple test (without any argument)\033[0m"
-
-#Compile the test
-gcc simple.c -D PRINT=printf && ./a.out > ./log/printf.log
-gcc simple.c ../libftprintf.a -D PRINT=ft_printf -Wall -Werror -Wextra -fsanitize=address -g3 && ./a.out > ./log/ft_printf.log
-diff ./log/printf.log ./log/ft_printf.log > ./log/diff.log
-
-#Check if the diff file is ok or not
-if [ -s ./log/diff.log ]
+#Search if have argument, which is it
+if [ $var = "all" ]
 then
-	echo  "\033[1;31mK.O\033[2;37m" && cat ./log/diff.log
-	rm -rf a.out && rm -rf a.out.dSYM && cd .. && Make fclean && exit 1
-else
-	echo "\033[1;32mOK :D\033[0m"
+	bash char.sh
+	bash string.sh
+	bash percent.sh
 fi
 
-#Announce what type of test is being done
-echo "\033[3;37mPercent test\033[0m"
-
-#Compile the test
-gcc percent.c -D PRINT=printf && ./a.out > ./log/printf.log
-gcc percent.c ../libftprintf.a -D PRINT=ft_printf -Wall -Werror -Wextra -fsanitize=address -g3 && ./a.out > ./log/ft_printf.log
-diff ./log/printf.log ./log/ft_printf.log > ./log/diff.log
-
-#Check if the diff file is ok or not
-if [ -s ./log/diff.log ]
+if [ $var = "c" ]
 then
-	echo "\033[1;31mK.O\033[2;37m" && cat ./log/diff.log
-	rm -rf a.out && rm -rf a.out.dSYM && cd .. && Make fclean && exit 1
-else
-	echo "\033[1;32mOK :D\033[0m"
+	bash char.sh
 fi
 
-#Announce what type of test is being done
-echo "\033[3;37mChar test\033[0m"
-
-#Compile the test
-gcc char.c -D PRINT=printf && ./a.out > ./log/printf.log
-gcc char.c ../libftprintf.a -D PRINT=ft_printf -Wall -Werror -Wextra -fsanitize=address -g3 && ./a.out > ./log/ft_printf.log
-diff ./log/printf.log ./log/ft_printf.log > ./log/diff.log
-
-#Check if the diff file is ok or not
-if [ -s ./log/diff.log ]
+if [ $var = "s" ]
 then
-	echo "\033[1;31mK.O\033[2;37m" && cat ./log/diff.log
-	rm -rf a.out && rm -rf a.out.dSYM && cd .. && Make fclean && exit 1
-else
-	echo "\033[1;32mOK :D\033[0m"
+	bash string.sh
+fi
+
+if [ $var = "p" ]
+then
+	bash percent.sh
 fi
 
 #Clean all
 rm -rf a.out && rm -rf a.out.dSYM
-cd .. && Make fclean
+cd ../../ && Make fclean -s
 
 #End of file, exit 0 if all is OK :D
 exit 0
