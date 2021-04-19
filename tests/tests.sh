@@ -11,7 +11,7 @@ else
 fi
 
 #Compile
-cd ../ && Make && cd tests/script 
+cd ../ && make && cd tests/script 
 
 #Search if have argument, which is it
 if [ $var = "all" ]
@@ -38,7 +38,7 @@ fi
 
 #Clean all
 rm -rf a.out && rm -rf a.out.dSYM
-cd ../../ && Make fclean -s
+cd ../../ && make fclean -s
 
 #End of file, exit 0 if all is OK :D
 exit 0
