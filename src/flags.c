@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 18:19:08 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/21 14:38:19 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 	len = 0;
 	if (*str == '*')
 	{
+		flags->is_star = 1;
 		flags->count = (int)va_arg(parameters, int);
 		len++;
 	}

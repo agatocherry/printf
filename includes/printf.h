@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/19 10:27:24 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/21 14:37:59 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_flags
 	char		c;
 	int			count;
 	int			negative;
+	int			is_star;
 }				t_flags;
 
 typedef struct	s_arguments
