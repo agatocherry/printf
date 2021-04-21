@@ -12,9 +12,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      # - name: Install
-      #   run: |
-      #     brew install make
-
       - name: Testing
         run: cd tests && bash tests.sh all
