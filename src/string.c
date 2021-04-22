@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:23:26 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 15:26:45 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/22 16:19:54 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void		argument_string(int *display, va_list parameters, t_flags flags[4])
 
 	str = va_arg(parameters, char *);
 	if (str == NULL)
-	{
-		ft_putnstr("(null)", 6);
-		*display += 6;
-		return ;
-	}
-	len = ft_strlen(str);
+		len = 6;
+	else
+		len = ft_strlen(str);
 	process(flags, &len, display);
-	ft_putnstr(str, len);
+	if (str == NULL)
+		ft_putnstr("(null)", len);
+	else
+		ft_putnstr(str, len);
 	while (flags[1].count > 0 && flags[1].count > len)
 	{
 		ft_putchar(' ');
