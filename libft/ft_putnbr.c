@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:41:50 by agcolas           #+#    #+#             */
-/*   Updated: 2021/03/30 17:42:55 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/22 12:32:21 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	ft_putnbr(int n)
 
 	nb = n;
 	if (nb < 0)
-	{
-		ft_putchar('-');
 		nb *= -1;
-	}
 	if (nb > 9)
 	{
 		ft_putnbr(nb / 10);

@@ -32,6 +32,14 @@ then
 		cd ../.. && make fclean
 		exit 1
 	fi
+	bash int.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 	bash percent.sh
 	exit_status=$?
 	if [ $exit_status = 1 ]
@@ -66,7 +74,31 @@ then
 	fi
 fi
 
-if [ $var = "p" ]
+if [ $var = "d" ]
+then
+	bash int.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
+fi
+
+if [ $var = "i" ]
+then
+	bash int.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
+fi
+
+if [ $var = "%" ]
 then
 	bash percent.sh
 	exit_status=$?
