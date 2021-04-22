@@ -40,6 +40,14 @@ then
 		cd ../.. && make fclean
 		exit 1
 	fi
+	bash unsigned.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 	bash percent.sh
 	exit_status=$?
 	if [ $exit_status = 1 ]
@@ -89,6 +97,18 @@ fi
 if [ $var = "i" ]
 then
 	bash int.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
+fi
+
+if [ $var = "u" ]
+then
+	bash unsigned.sh
 	exit_status=$?
 	if [ $exit_status = 1 ]
 	then

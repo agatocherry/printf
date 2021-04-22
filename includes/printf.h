@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 11:48:06 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/22 15:35:33 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void			argument_char(int *display, va_list parameters,
 void			argument_string(int *display, va_list parameters,
 				t_flags flags[4]);
 void			argument_int(int *display, va_list parameters,
+				t_flags flags[4]);
+void			argument_unsigned(int *display, va_list parameters,
 				t_flags flags[4]);
 
 #endif
