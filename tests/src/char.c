@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/19 10:22:26 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/22 15:21:54 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int	main(void)
 
 	i = -200;
 	c = -10;
-	PRINT("1 [%c]\n", 'a');
+	PRINT(" %d\n", PRINT("1 [%c]", 'a'));
 	while (c < 410)
 	{
-		PRINT("2 [%c]\n", c);
-		PRINT("3 [%5c]\n", c);
-		PRINT("4 [%*c]\n", i, c);
-		PRINT("5 [%9c]\n", c);
-		PRINT("6 [%-15c]\n", c);
-		PRINT("7 [%-*c]\n", i, c);
-		PRINT("8 [%-9c]\n", c);
-		PRINT("9 [%c %c %c]\n", c, c, c);
-		PRINT("10 [%200c %-5c %15c]\n", c, c, c);
+		PRINT(" %d\n", PRINT("2 [%c]", c));
+		PRINT(" %d\n", PRINT("3 [%5c]", c));
+		PRINT(" %d\n", PRINT("4 [%*c]", i, c));
+		PRINT(" %d\n", PRINT("5 [%9c]", c));
+		PRINT(" %d\n", PRINT("6 [%-15c]", c));
+		PRINT(" %d\n", PRINT("7 [%-*c]", i, c));
+		PRINT(" %d\n", PRINT("8 [%-9c]", c));
+		PRINT(" %d\n", PRINT("9 [%c %c %c]", c, c, c));
+		PRINT(" %d\n", PRINT("10 [%200c %-5c %15c]", c, c, c));
 		i++;
 		c++;
 	}

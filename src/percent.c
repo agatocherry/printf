@@ -6,13 +6,13 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 18:21:35 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/22 15:27:30 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	process(t_flags flags[4], int len)
+static void	process(t_flags flags[4], int len, int *display)
 {
 	if (flags[2].negative == 1)
 	{
@@ -27,11 +27,13 @@ static void	process(t_flags flags[4], int len)
 	while (flags[2].count > len)
 	{
 		ft_putchar('0');
+		*display += 1;
 		flags[2].count--;
 	}
 	while (flags[0].count > len)
 	{
 		ft_putchar(' ');
+		*display += 1;
 		flags[0].count--;
 	}
 }
@@ -41,11 +43,13 @@ void		argument_percent(int *display, va_list parameters, t_flags flags[4])
 	int	len;
 
 	len = 1;
-	process(flags, len);
+	process(flags, len, display);
 	ft_putchar('%');
 	while (flags[1].count > len)
 	{
 		ft_putchar(' ');
+		*display += 1;
 		flags[1].count--;
 	}
+	*display += len;
 }
