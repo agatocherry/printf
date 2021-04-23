@@ -32,6 +32,14 @@ then
 		cd ../.. && make fclean
 		exit 1
 	fi
+	bash pointer.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
 	bash int.sh
 	exit_status=$?
 	if [ $exit_status = 1 ]
@@ -73,6 +81,18 @@ fi
 if [ $var = "s" ]
 then
 	bash string.sh
+	exit_status=$?
+	if [ $exit_status = 1 ]
+	then
+		rm -rf a.out && rm -rf a.out.dSYM 
+		cd ../.. && make fclean
+		exit 1
+	fi
+fi
+
+if [ $var = "p" ]
+then
+	bash pointer.sh
 	exit_status=$?
 	if [ $exit_status = 1 ]
 	then
