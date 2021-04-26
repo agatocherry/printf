@@ -29,6 +29,10 @@ $(NAME) : $(OBJS)
 	@ar rc $@ $^
 	@echo "Compiling $(NAME) done"
 
+# Delete :
+debug :
+	@cd tests && bash tests.sh all
+
 clean :
 	@echo "! Removed objects files"
 	@rm -rf $(OBJS)

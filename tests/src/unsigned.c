@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 16:09:24 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/26 11:48:54 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,22 @@ int	main(void)
 		PRINT(" %d\n", PRINT("9 [%-*u]", i, i));
 		i++;
 	}
+	PRINT(" %d\n", PRINT("10 [%3u]", 0));
+	PRINT(" %d\n", PRINT("11 [%-3u]", 0));
+	PRINT(" %d\n", PRINT("12 [%.3u]", 0));
+	PRINT(" %d\n", PRINT("13 [%03u]", 0));
+	PRINT(" %d\n", PRINT("14 [%8.5u]", 34));
+	PRINT(" %d\n", PRINT("15 [%8.5u]", 0));
+	PRINT(" %d\n", PRINT("16 [%-8.5u]", 34));
+	PRINT(" %d\n", PRINT("17 [%-8.5u]", 0));
+	PRINT(" %d\n", PRINT("18 [%08.5u]", 34));
+	PRINT(" %d\n", PRINT("19 [%08.5u]", 0));
+	PRINT(" %d\n", PRINT("20 [%08.3u]", 8375));
+	PRINT(" %d\n", PRINT("21 [%.0u]", 0));
+	PRINT(" %d\n", PRINT("22 [%.u]", 0));
+	PRINT(" %d\n", PRINT("23 [%5.0u]", 0));
+	PRINT(" %d\n", PRINT("24 [%5.u]", 0));
+	PRINT(" %d\n", PRINT("25 [%-5.0u]", 0));
+	PRINT(" %d\n", PRINT("26 [%-5.u]", 0));
 	return (0);
 }

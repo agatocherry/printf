@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 15:10:06 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/26 11:47:40 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,27 @@ static void	d()
 	PRINT(" %d\n", PRINT("22 [%-10d]", 150));
 	PRINT(" %d\n", PRINT("23 [%-d]", 150));
 	PRINT(" %d\n", PRINT("24 [%10d]", 150));
+	PRINT(" %d\n", PRINT("25 [%3d]", 0));
+	PRINT(" %d\n", PRINT("26 [%-3d]", 0));
+	PRINT(" %d\n", PRINT("27 [%.3d]", 0));
+	PRINT(" %d\n", PRINT("28 [%03d]", 0));
+	PRINT(" %d\n", PRINT("29 [%8.5d]", 34));
+	PRINT(" %d\n", PRINT("30 [%10.5d]", -216));
+	PRINT(" %d\n", PRINT("31 [%8.5d]", 0));
+	PRINT(" %d\n", PRINT("32 [%-8.5d]", 34));
+	PRINT(" %d\n", PRINT("33 [%-10.5d]", -216));
+	PRINT(" %d\n", PRINT("34 [%-8.5d]", 0));
+	PRINT(" %d\n", PRINT("35 [%08.5d]", 34));
+	PRINT(" %d\n", PRINT("36 [%010.5d]", -216));
+	PRINT(" %d\n", PRINT("37 [%08.5d]", 0));
+	PRINT(" %d\n", PRINT("38 [%08.3d]", 8375));
+	PRINT(" %d\n", PRINT("39 [%08.3d]", -8473));
+	PRINT(" %d\n", PRINT("40 [%.0d]", 0));
+	PRINT(" %d\n", PRINT("41 [%.d]", 0));
+	PRINT(" %d\n", PRINT("42 [%5.0d]", 0));
+	PRINT(" %d\n", PRINT("43 [%5.d]", 0));
+	PRINT(" %d\n", PRINT("44 [%-5.0d]", 0));
+	PRINT(" %d\n", PRINT("48 [%-5.d]", 0));
 }
 
 static void	i()
@@ -81,6 +102,24 @@ static void	i()
 	PRINT(" %i\n", PRINT("22 [%-10i]", 150));
 	PRINT(" %i\n", PRINT("23 [%-i]", 150));
 	PRINT(" %i\n", PRINT("24 [%10i]", 150));
+	PRINT(" %i\n", PRINT("25 [%3i]", 0));
+	PRINT(" %i\n", PRINT("26 [%-3i]", 0));
+	PRINT(" %i\n", PRINT("27 [%.3i]", 0));
+	PRINT(" %i\n", PRINT("28 [%03i]", 0));
+	PRINT(" %i\n", PRINT("29 [%8.5i]", 34));
+	PRINT(" %i\n", PRINT("30 [%10.5i]", -216));
+	PRINT(" %i\n", PRINT("31 [%-8.5i]", 0));
+	PRINT(" %i\n", PRINT("32 [%8.5i]", 34));
+	PRINT(" %i\n", PRINT("33 [%010.5i]", -216));
+	PRINT(" %i\n", PRINT("34 [%08.5i]", 0));
+	PRINT(" %i\n", PRINT("35 [%08.3i]", 8375));
+	PRINT(" %i\n", PRINT("36 [%08.3i]", -8373));
+	PRINT(" %i\n", PRINT("37 [%.0i]", 0));
+	PRINT(" %i\n", PRINT("38 [%.i]", 0));
+	PRINT(" %i\n", PRINT("39 [%5.0i]", 0));
+	PRINT(" %i\n", PRINT("40 [%5.i]", 0));
+	PRINT(" %i\n", PRINT("41 [%-5.0i]", 0));
+	PRINT(" %i\n", PRINT("42 [%-5.i]", 0));
 }
 
 int	main(void)
