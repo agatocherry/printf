@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/26 11:47:40 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/27 15:04:08 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	d()
 	PRINT(" %d\n", PRINT("42 [%5.0d]", 0));
 	PRINT(" %d\n", PRINT("43 [%5.d]", 0));
 	PRINT(" %d\n", PRINT("44 [%-5.0d]", 0));
-	PRINT(" %d\n", PRINT("48 [%-5.d]", 0));
+	PRINT(" %d\n", PRINT("45 [%-5.d]", 0));
 }
 
 static void	i()

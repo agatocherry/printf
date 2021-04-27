@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 15:08:52 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/27 15:10:55 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	nb_len(long nb)
 	int	len;
 
 	len = 0;
+	if (nb == 0)
+		len = 1;
 	if (nb < 0)
 	{
 		len++;
@@ -48,9 +50,20 @@ static void	process(t_flags flags[4], int len, int if_neg, int *display)
 	}
 }
 
-static void	pre_process(int len, int *display, t_flags flags[4])
+static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
 {
-	while (flags[0].count > len)
+	if (flags[2].count != -1 && flags[3].count != -1)
+	{
+		flags[0].count = flags[2].count;
+		flags[2].count = -1;
+	}
+	if (flags[1].count != -1 && flags[3].count != -1)
+	{
+		flags[1].count -= flags[3].count;
+		flags[1].count += len;
+		flags[1].count -= if_neg;
+	}
+	while (flags[0].count > len && flags[0].count > (flags[3].count + if_neg))
 	{
 		ft_putchar(' ');
 		*display += 1;
@@ -58,31 +71,43 @@ static void	pre_process(int len, int *display, t_flags flags[4])
 	}
 }
 
-void		argument_int(int *display, va_list parameters, t_flags flags[4])
+void		end_process(t_flags flags[4], int len, int no_put, int *display)
 {
-	int	len;
-	int	nb;
-	int if_neg;
-
-	if_neg = 0;
-	nb = va_arg(parameters, int);
-	len = nb_len((long)nb);
-	pre_process(len, display, flags);
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-		if_neg = 1;
-	}
-	process(flags, len, if_neg, display);
-	ft_putnbr(nb);
 	while (flags[1].count > len)
 	{
 		ft_putchar(' ');
 		*display += 1;
 		flags[1].count--;
 	}
-	if (nb == 0)
-		len++;
-	*display += len;
+	if (no_put == 0)
+		*display += len;
+}
+
+void		argument_int(int *display, va_list parameters, t_flags flags[4])
+{
+	int	len;
+	int	nb;
+	int if_neg;
+	int no_put;
+
+	if_neg = 0;
+	no_put = 0;
+	nb = va_arg(parameters, int);
+	len = nb_len((long)nb);
+	if (nb < 0)
+		if_neg = 1;
+	if (flags[3].count == 0 && nb == 0)
+		no_put = 1;
+	if (no_put == 1 && flags[0].count != -1)
+		len--;
+	pre_process(len, display, flags, if_neg);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	process(flags, len, if_neg, display);
+	if (no_put == 0)
+		ft_putnbr(nb);
+	end_process(flags, len, no_put, display);
 }
