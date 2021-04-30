@@ -6,31 +6,11 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/26 12:40:32 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:19:37 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
-
-static int	hexalen(long int nb)
-{
-	int	i;
-
-	i = 0;
-	while (nb > 0)
-	{
-		nb /= 16;
-		i++;
-	}
-	return (i);
-}
-
-static void	puthexa(long int nb, char *base)
-{
-	if (nb > 16)
-		puthexa(nb / 16, "0123456789abcdef");
-	ft_putchar(base[nb % 16]);
-}
 
 static void	process(t_flags flags[4], int len, int *display)
 {
@@ -61,10 +41,10 @@ void		argument_pointer(int *display, va_list parameters, t_flags flags[4])
 	long int	pointer;
 
 	pointer = va_arg(parameters, long int);
-	len = hexalen(pointer) + 2;
+	len = ft_hexalen(pointer) + 2;
 	process(flags, len, display);
 	if ((void *)pointer != NULL)
-		puthexa(pointer, "0123456789abcdef");
+		ft_puthexa(pointer, "0123456789abcdef");
 	while (flags[1].count > len)
 	{
 		ft_putchar(' ');

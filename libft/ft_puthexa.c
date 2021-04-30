@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:41:50 by agcolas           #+#    #+#             */
-/*   Updated: 2021/03/30 17:42:55 by agcolas          ###   ########.fr       */
+/*   Created: 2021/04/30 16:16:03 by agcolas           #+#    #+#             */
+/*   Updated: 2021/04/30 16:18:13 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_puthexa(long int nb, char *base)
 {
-	long	nb;
-
-	nb = n;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar('0' + nb % 10);
+	if (nb > 16)
+		ft_puthexa(nb / 16, base);
+	ft_putchar(base[nb % 16]);
 }

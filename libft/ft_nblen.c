@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_nblen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:41:50 by agcolas           #+#    #+#             */
-/*   Updated: 2021/03/30 17:42:55 by agcolas          ###   ########.fr       */
+/*   Created: 2021/04/30 16:04:46 by agcolas           #+#    #+#             */
+/*   Updated: 2021/04/30 16:21:20 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_nblen(long nb)
 {
-	long	nb;
+	int	len;
 
-	nb = n;
+	len = 0;
+	if (nb == 0)
+		len = 1;
 	if (nb < 0)
 	{
-		ft_putchar('-');
+		len++;
 		nb *= -1;
 	}
-	if (nb > 9)
+	while (nb > 0)
 	{
-		ft_putnbr(nb / 10);
+		nb /= 10;
+		len++;
 	}
-	ft_putchar('0' + nb % 10);
+	return (len);
 }

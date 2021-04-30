@@ -6,31 +6,11 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 15:49:05 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:17:18 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
-
-static int	hexalen(long int nb)
-{
-	int	i;
-
-	i = 0;
-	while (nb > 0)
-	{
-		nb /= 16;
-		i++;
-	}
-	return (i);
-}
-
-static void	puthexa(long int nb, char *base)
-{
-	if (nb > 16)
-		puthexa(nb / 16, base);
-	ft_putchar(base[nb % 16]);
-}
 
 static void	pre_process(int *len, int *display, t_flags flags[4])
 {
@@ -106,7 +86,7 @@ void		argument_hexa_lower(int *display, va_list parameters, t_flags flags[4])
 	no_put = 0;
 	save = flags[3].count;
 	pointer = va_arg(parameters, long int);
-	len = hexalen(pointer);
+	len = ft_hexalen(pointer);
 	if (pointer == 0)
 		len++;
 	if (pointer == 0 && flags[3].count == 0)
@@ -114,7 +94,7 @@ void		argument_hexa_lower(int *display, va_list parameters, t_flags flags[4])
 	pre_process(&len, display, flags);
 	process(flags, len, display, no_put);
 	if (save != 0 || no_put == 0)
-		puthexa(pointer, "0123456789abcdef");
+		ft_puthexa(pointer, "0123456789abcdef");
 	if (no_put == 1)
 		len--;
 	end_process(flags, len, display, save);

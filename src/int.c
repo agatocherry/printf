@@ -6,30 +6,26 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 12:38:35 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/30 16:07:42 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static int	nb_len(long nb)
+static void	ft_putunbr(int n)
 {
-	int	len;
+	long	nb;
 
-	len = 0;
-	if (nb == 0)
-		len = 1;
+	nb = n;
 	if (nb < 0)
 	{
-		len++;
 		nb *= -1;
 	}
-	while (nb > 0)
+	if (nb > 9)
 	{
-		nb /= 10;
-		len++;
+		ft_putnbr(nb / 10);
 	}
-	return (len);
+	ft_putchar('0' + nb % 10);
 }
 
 static void	process(t_flags flags[4], int len, int if_neg, int *display)
@@ -93,7 +89,7 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 	if_neg = 0;
 	no_put = 0;
 	nb = va_arg(parameters, int);
-	len = nb_len((long)nb);
+	len = ft_nblen((long)nb);
 	if (nb < 0)
 		if_neg = 1;
 	if (flags[3].count == 0 && nb == 0)
@@ -108,6 +104,6 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 	}
 	process(flags, len, if_neg, display);
 	if (no_put == 0)
-		ft_putnbr(nb);
+		ft_putunbr(nb);
 	end_process(flags, len, no_put, display);
 }

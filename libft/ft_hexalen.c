@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_hexalen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:41:50 by agcolas           #+#    #+#             */
-/*   Updated: 2021/03/30 17:42:55 by agcolas          ###   ########.fr       */
+/*   Created: 2021/04/30 16:12:54 by agcolas           #+#    #+#             */
+/*   Updated: 2021/04/30 16:15:29 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_hexalen(long int nb)
 {
-	long	nb;
+	int	i;
 
-	nb = n;
-	if (nb < 0)
+	i = 0;
+	while (nb > 0)
 	{
-		ft_putchar('-');
-		nb *= -1;
+		nb /= 16;
+		i++;
 	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar('0' + nb % 10);
+	return (i);
 }
