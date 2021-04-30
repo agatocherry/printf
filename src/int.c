@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/27 15:10:55 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/30 12:38:35 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
 	}
 }
 
-void		end_process(t_flags flags[4], int len, int no_put, int *display)
+static void	end_process(t_flags flags[4], int len, int no_put, int *display)
 {
 	while (flags[1].count > len)
 	{

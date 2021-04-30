@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 23:51:00 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/16 11:51:03 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/04/30 12:34:08 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void			ft_putstr(char *str);
 void			ft_putnstr(char *str, int n);
 void			ft_putnbr(int n);
 void			ft_putchar(char c);
+void			ft_putuint(unsigned long n);
 size_t			ft_strlcat(char *dest, const char *src, size_t count);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlen(const char *s);
