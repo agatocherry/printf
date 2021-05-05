@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/03 12:32:40 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/05 14:59:55 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	pre_process(int *len, int *display, t_flags flags[4])
 
 static void	process(t_flags flags[4], int len, int *display, int no_put)
 {
-	if (flags[3].count != -1)
+	if (flags[3].count > 0)
 	{
 		flags[2].count = flags[3].count;
 		flags[3].count = -4;
@@ -60,7 +60,7 @@ static void	process(t_flags flags[4], int len, int *display, int no_put)
 
 static void	end_process(t_flags flags[4], int len, int *display, int save)
 {
-	if (flags[3].count == -4)
+	if (flags[3].count == -4 && save != 0)
 		while (flags[1].count > save)
 		{
 			ft_putchar(' ');
@@ -85,13 +85,17 @@ void		argument_hexa_lower(int *display, va_list parameters,
 	int			no_put;
 
 	no_put = 0;
-	save = flags[3].count;
+	save = 0;
 	pointer = va_arg(parameters, long int);
 	len = ft_hexalen(pointer);
 	if (pointer == 0)
 		len++;
 	if (pointer == 0 && flags[3].count == 0)
+		flags[0].count++;
+	if (pointer == 0 && flags[3].count == 0)
 		no_put = 1;
+	if (flags[3].count > len)
+		save = flags[3].count;
 	pre_process(&len, display, flags);
 	process(flags, len, display, no_put);
 	if (save != 0 || no_put == 0)
