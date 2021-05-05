@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/27 15:04:08 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/03 14:26:03 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,25 @@ int	main(void)
 {
 	d();
 	i();
+	PRINT(" %d\n", PRINT("1 %-8.3i", 8375));
+	PRINT(" %d\n", PRINT("2 %-8.3i", -8473));
+	PRINT(" %d\n", PRINT("3 %-8.3d", 8375));
+	PRINT(" %d\n", PRINT("4 %-8.3d", -8473));
+	PRINT(" %d\n", PRINT("5 [{%*d}]", -5, 42));
+	PRINT(" %d\n", PRINT("6 [{%.*d}]", -5, 42));
+	PRINT(" %d\n", PRINT("7 [{%05.*d}]", -15, 42));
+	PRINT(" %d\n", PRINT("8 [neg1 %*d]", -9, 150));
+	PRINT(" %d\n", PRINT("9 [neg2 %*.*d]", -9, 4, 1555));
+	PRINT(" %d\n", PRINT("10 [neg3 %*d]", -9, -255));
+	PRINT(" %d\n", PRINT("11 [neg5 %*d]", -100, -589));
+	PRINT(" %d\n", PRINT("12 [neg6 %*d]", -156, 15555));
+	PRINT(" %d\n", PRINT("13 [neg7 %*.*d]", -1586, 15, 0));
+	PRINT(" %d\n", PRINT("14 [neg8 %*.*d]", -1586, 15, 300));
+	PRINT(" %d\n", PRINT("15 [neg10 %*.*d]", -15586, 15, 150));
+	PRINT(" %d\n", PRINT("16 [neg11 %*.*d]", -15586, 15, 0));
+	PRINT(" %d\n", PRINT("17 %*.d", -444, 555));
+	PRINT(" %d\n", PRINT("18 %*.d", -444, 1000000));
+	PRINT(" %d\n", PRINT("19 %0*d", -10, 7));
+	PRINT(" %d\n", PRINT("19 %0*.*d", -5, -10, 7));
 	return (0);
 }

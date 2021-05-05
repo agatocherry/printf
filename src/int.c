@@ -6,27 +6,11 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 16:07:42 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/03 12:31:39 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
-
-static void	ft_putunbr(int n)
-{
-	long	nb;
-
-	nb = n;
-	if (nb < 0)
-	{
-		nb *= -1;
-	}
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar('0' + nb % 10);
-}
 
 static void	process(t_flags flags[4], int len, int if_neg, int *display)
 {
@@ -46,18 +30,35 @@ static void	process(t_flags flags[4], int len, int if_neg, int *display)
 	}
 }
 
-static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
+static void	some_correction(t_flags flags[4])
 {
+	if (flags[0].count != -1 && flags[0].negative == 1)
+	{
+		flags[1].count = flags[0].count;
+		flags[0].count = -1;
+	}
+	if (flags[3].count != -1 && flags[3].is_star == 1 && flags[3].negative == 1)
+	{
+		flags[3].count = -1;
+	}
 	if (flags[2].count != -1 && flags[3].count != -1)
 	{
 		flags[0].count = flags[2].count;
 		flags[2].count = -1;
 	}
+}
+
+static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
+{
+	some_correction(flags);
 	if (flags[1].count != -1 && flags[3].count != -1)
 	{
-		flags[1].count -= flags[3].count;
-		flags[1].count += len;
-		flags[1].count -= if_neg;
+		if (flags[3].count > len || flags[3].count == 0)
+		{
+			flags[1].count -= flags[3].count;
+			flags[1].count += len;
+			flags[1].count -= if_neg;
+		}
 	}
 	while (flags[0].count > len && flags[0].count > (flags[3].count + if_neg))
 	{

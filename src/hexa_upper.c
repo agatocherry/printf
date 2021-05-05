@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 16:18:48 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/03 12:32:59 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ static void	end_process(t_flags flags[4], int len, int *display, int save)
 		}
 }
 
-void		argument_hexa_upper(int *display, va_list parameters, t_flags flags[4])
+void		argument_hexa_upper(int *display, va_list parameters,
+			t_flags flags[4])
 {
 	int			len;
 	long int	pointer;
-	int				save;
-	int				no_put;
+	int			save;
+	int			no_put;
 
 	no_put = 0;
 	save = flags[3].count;

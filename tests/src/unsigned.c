@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 12:28:19 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/03 14:15:01 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,12 @@ int	main(void)
 	PRINT(" %d\n", PRINT("24 [%5.u]", 0));
 	PRINT(" %d\n", PRINT("25 [%-5.0u]", 0));
 	PRINT(" %d\n", PRINT("26 [%-5.u]", 0));
+	PRINT(" %d\n", PRINT("27 [%5.u]", 1));
+	PRINT(" %d\n", PRINT("28 [%1.u]", 1));
+	PRINT(" %d\n", PRINT("29 [%20.u]", 1024u));
+	PRINT(" %d\n", PRINT("30 [%20.0u]", -1024u));
+	PRINT(" %d\n", PRINT("31 [%-8.3u]", 8375));
+	PRINT(" %d\n", PRINT("32 [%20.u]", 1024u));
+	PRINT(" %d\n", PRINT("33 [%20.0u]", -1024u));
 	return (0);
 }

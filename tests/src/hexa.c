@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 15:49:20 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/03 14:16:46 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,15 @@ int	main(void)
 	PRINT(" %d\n", PRINT("70 [%5.X]", 0));
 	PRINT(" %d\n", PRINT("71 [%-5.0X]", 0));
 	PRINT(" %d\n", PRINT("72 [%-5.X]", 0));
+	PRINT(" %d\n", PRINT("73 [%-8.3x]", 8375));
+	PRINT(" %d\n", PRINT("74 [%-8.3x]", 8375));
+	PRINT(" %d\n", PRINT("75 [%-8.3X]", 8375));
+	PRINT(" %d\n", PRINT("76 [%20.x]", 0x1234abcdu));
+	PRINT(" %d\n", PRINT("77 [%20.0x]", -0x1234abcdu));
+	PRINT(" %d\n", PRINT("78 [%20.X]", 0x1234abcdu));
+	PRINT(" %d\n", PRINT("79 [%20.0X]", -0x1234abcdu));
+	PRINT(" %d\n", PRINT("80 [%1.x]", 0xee));
+	PRINT(" %d\n", PRINT("81 [%1.X]", 0xee));
+	PRINT(" %d\n", PRINT("82 [%5.x]", 0xee));
+	PRINT(" %d\n", PRINT("83 [%5.X]", 0xee));
 }
