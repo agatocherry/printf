@@ -1,93 +1,103 @@
-1 [1] 5
-2 [00001] 9
-3 [00001] 9
-4 [1    ] 9
-5 [    1] 9
-6 [2a] 6
-7 [5d76f] 9
-8 [fffa2891] 12
-9 [b0f  ] 9
-10 [9557 ] 10
-1 [1] 5
-2 [00001] 9
-3 [00001] 9
-4 [1    ] 9
-5 [    1] 9
-6 [2A] 6
-7 [5D76F] 9
-8 [FFFA2891] 12
-9 [B0F  ] 9
-10 [9557 ] 10
-11 [  0] 8
-12 [0  ] 8
-13 [000] 8
-14 [000] 8
-15 [   00022] 13
-16 [   00000] 13
-17 [00022   ] 13
-18 [00000   ] 13
-19 [   00022] 13
-20 [   00000] 13
-21 [    20b7] 13
-22 [] 5
-23 [] 5
-24 [     ] 10
-25 [     ] 10
-26 [     ] 10
-27 [     ] 10
-28 [  0] 8
-29 [0  ] 8
-30 [000] 8
-31 [000] 8
-32 [   00022] 13
-33 [   00000] 13
-34 [00022   ] 13
-35 [00000   ] 13
-36 [   00022] 13
-37 [   00000] 13
-38 [    20b7] 13
-39 [] 5
-40 [] 5
-41 [     ] 10
-42 [     ] 10
-43 [     ] 10
-44 [     ] 10
-45 [  0] 8
-46 [0  ] 8
-47 [000] 8
-48 [000] 8
-49 [   00022] 13
-50 [   00000] 13
-51 [00022   ] 13
-52 [00000   ] 13
-53 [   00022] 13
-54 [   00000] 13
-55 [    20B7] 13
-56 [  0] 8
-57 [0  ] 8
-58 [000] 8
-59 [000] 8
-60 [   00022] 13
-61 [   00000] 13
-62 [00022   ] 13
-63 [00000   ] 13
-64 [   00022] 13
-65 [   00000] 13
-66 [    20B7] 13
-67 [] 5
-68 [] 5
-69 [     ] 10
-70 [     ] 10
-71 [     ] 10
-72 [     ] 10
-73 [20b7    ] 13
-74 [20b7    ] 13
-75 [20B7    ] 13
-76 [            1234abcd] 25
-77 [            edcb5433] 25
-78 [            1234ABCD] 25
-79 [            EDCB5433] 25
-80 [ee] 7
-81 [EE] 7
-82 [   ee] 10
-83 [   EE] 10
+1 [Hello World !] 17
+2 [] 4
+3 [      ] 10
+4 [      ] 10
+5 [Hello] 9
+6 [Hello World !] 17
+7 [Hello World !] 17
+8 [Hello World !                                          ] 59
+9 [                                          Hello World !] 59
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello World !] 18
+13 [Hello World !] 18
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [] 5
+13 [] 5
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [H] 6
+13 [H] 6
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [He] 7
+13 [He] 7
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hel] 8
+13 [Hel] 8
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hell] 9
+13 [Hell] 9
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello] 10
+13 [Hello] 10
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello ] 11
+13 [Hello ] 11
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello W] 12
+13 [Hello W] 12
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello Wo] 13
+13 [Hello Wo] 13
+10 [Hello World !] 18
+11 [Hello World !] 18
+12 [Hello Wor] 14
+13 [Hello Wor] 14
+14 [     ] 10
+15 [     ] 10
+16 [                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ] 550
+17 [                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ] 550
+18 [Hello World !] 18
+19 [♥] 8
+20 [] 5
+21 [] 5
+22 [NULL] 9
+23 [(NULL)] 11
+24 [(null)] 11
+25 [(null)] 11
+26 [(null)] 11
+27 [neg1    coucou] 19

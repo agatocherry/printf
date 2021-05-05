@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/03 12:31:39 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/05 15:13:04 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ static void	process(t_flags flags[4], int len, int if_neg, int *display)
 
 static void	some_correction(t_flags flags[4])
 {
+	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count == 0)
+		flags[3].count = -1;
+	if (flags[2].count != -1 && flags[2].negative == 1)
+	{
+		flags[1].count = flags[2].count;
+		flags[2].count = -1;
+	}
 	if (flags[0].count != -1 && flags[0].negative == 1)
 	{
 		flags[1].count = flags[0].count;

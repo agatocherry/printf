@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/03 14:26:03 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/05 15:13:26 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,9 +142,25 @@ int	main(void)
 	PRINT(" %d\n", PRINT("14 [neg8 %*.*d]", -1586, 15, 300));
 	PRINT(" %d\n", PRINT("15 [neg10 %*.*d]", -15586, 15, 150));
 	PRINT(" %d\n", PRINT("16 [neg11 %*.*d]", -15586, 15, 0));
-	PRINT(" %d\n", PRINT("17 %*.d", -444, 555));
-	PRINT(" %d\n", PRINT("18 %*.d", -444, 1000000));
-	PRINT(" %d\n", PRINT("19 %0*d", -10, 7));
-	PRINT(" %d\n", PRINT("19 %0*.*d", -5, -10, 7));
+	PRINT(" %d\n", PRINT("17 [%*.i]", -444, 555));
+	PRINT(" %i\n", PRINT("18 [%*.i]", -444, 1000000));
+	PRINT(" %i\n", PRINT("19 [%0*i]", -10, 7));
+	PRINT(" %i\n", PRINT("20 [%0*.*i]", -5, -10, 7));
+	PRINT(" %i\n", PRINT("5 [{%*i}]", -5, 42));
+	PRINT(" %i\n", PRINT("6 [{%.*i}]", -5, 42));
+	PRINT(" %i\n", PRINT("7 [{%05.*i}]", -15, 42));
+	PRINT(" %i\n", PRINT("8 [neg1 %*i]", -9, 150));
+	PRINT(" %i\n", PRINT("9 [neg2 %*.*i]", -9, 4, 1555));
+	PRINT(" %i\n", PRINT("10 [neg3 %*i]", -9, -255));
+	PRINT(" %i\n", PRINT("11 [neg5 %*i]", -100, -589));
+	PRINT(" %i\n", PRINT("12 [neg6 %*i]", -156, 15555));
+	PRINT(" %i\n", PRINT("13 [neg7 %*.*i]", -1586, 15, 0));
+	PRINT(" %i\n", PRINT("14 [neg8 %*.*i]", -1586, 15, 300));
+	PRINT(" %i\n", PRINT("15 [neg10 %*.*i]", -15586, 15, 150));
+	PRINT(" %i\n", PRINT("16 [neg11 %*.*i]", -15586, 15, 0));
+	PRINT(" %i\n", PRINT("17 [%*.i]", -444, 555));
+	PRINT(" %i\n", PRINT("18 [%*.i]", -444, 1000000));
+	PRINT(" %i\n", PRINT("19 [%0*i]", -10, 7));
+	PRINT(" %i\n", PRINT("20 [%0*.*i]", -5, -10, 7));
 	return (0);
 }
