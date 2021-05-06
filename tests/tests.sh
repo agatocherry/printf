@@ -11,7 +11,9 @@ else
 fi
 
 #Compile
-cd ../ && make && cd tests/script 
+cd ..
+make
+cd tests/script
 
 #Search if have argument, which is it
 if [ $var = "all" ]
