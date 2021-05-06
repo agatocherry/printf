@@ -12,5 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Install
+      run: |
+        git clone --recursive https://github.com/agatocherry/printf.git
+        cd printf
       - name: Testing
-        run: cd tests && bash tests.sh all
+      run: cd tests && bash tests.sh all
