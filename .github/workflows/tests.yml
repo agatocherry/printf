@@ -16,6 +16,8 @@ jobs:
       - name: Install printf-v2
         run: |
           git clone --recursive https://github.com/agatocherry/printf.git printf-v2
-          cd printf-v2/tests
+          cd printf-v2
+          ls *
+          cd tests
       - name: Testing
         run: bash tests.sh all
