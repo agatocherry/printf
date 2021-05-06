@@ -1,4 +1,4 @@
-name: Test
+name: Test printf
 
 on:
   push:
@@ -13,11 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install printf-v2
+      - name: Testing cspdiuxX%
         run: |
           git clone --recursive https://github.com/agatocherry/printf.git printf-v2
           cd printf-v2
           cd tests
-          ls *
-      - name: Testing
-        run: bash tests.sh all
+          bash tests.sh all

@@ -1,4 +1,4 @@
-name: norm
+name: Check norm v2
 
 on:
   push:
