@@ -32,6 +32,7 @@ Clone the repository and its dependencies :
 ```console
 $ git clone --recursive https://github.com/agatocherry/printf.git
 ```
+<!-- Note for myself : the command for add git module, is : `git submodule add https://github.com/agatocherry/libft.git` -->
 
 Change it to your working directory and run :
 ```console
