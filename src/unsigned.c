@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/30 16:20:33 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/06 15:07:10 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	nb_len(unsigned long nb)
 	return (len);
 }
 
-static void	process(t_flags flags[4], int len, int *display)
+static void	process(t_flags flags[4], int len, int *display, int nb)
 {
-	if (flags[3].count != -1)
+	if (flags[3].count > 0 || (nb == 0 && flags[3].count != -1))
 	{
 		flags[2].count = flags[3].count;
 		flags[3].count = -4;
@@ -71,22 +71,28 @@ static void	pre_process(int *len, int *display, t_flags flags[4])
 	}
 }
 
-void		end_process(t_flags flags[4], int len, int *display, int save)
+static int	end_process(t_flags flags[4], int len, int save, int nb)
 {
-	if (flags[3].count == -4)
+	int	display;
+
+	display = 0;
+	if (flags[1].count > save && save > 0 && len > save)
+		flags[1].count -= (len - save);
+	if (save > 0 || (nb == 0 && save != -1))
 		while (flags[1].count > save)
 		{
 			ft_putchar(' ');
-			*display += 1;
+			display += 1;
 			flags[1].count--;
 		}
 	else
 		while (flags[1].count > len)
 		{
 			ft_putchar(' ');
-			*display += 1;
+			display += 1;
 			flags[1].count--;
 		}
+	return (display);
 }
 
 void		argument_unsigned(int *display, va_list parameters,
@@ -106,11 +112,11 @@ void		argument_unsigned(int *display, va_list parameters,
 	if (nb == 0 && flags[3].count == 0)
 		no_put = 1;
 	pre_process(&len, display, flags);
-	process(flags, len, display);
+	process(flags, len, display, nb);
 	if (save != 0 || no_put == 0)
 		ft_putuint(nb);
 	if (no_put == 1)
 		len--;
-	end_process(flags, len, display, save);
+	*display += end_process(flags, len, save, nb);
 	*display += len;
 }
