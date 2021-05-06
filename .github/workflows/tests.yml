@@ -17,7 +17,7 @@ jobs:
         run: |
           git clone --recursive https://github.com/agatocherry/printf.git printf-v2
           cd printf-v2
-          ls *
           cd tests
+          ls *
       - name: Testing
         run: bash tests.sh all
