@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/05 15:00:07 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/06 16:03:02 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	main(void)
 	PRINT(" %d\n", PRINT("72 [%-5.X]", 0));
 	PRINT(" %d\n", PRINT("73 [%-8.3x]", 8375));
 	PRINT(" %d\n", PRINT("74 [%-8.3x]", 8375));
-	//
 	PRINT(" %d\n", PRINT("75 [%-8.3X]", 8375));
 	PRINT(" %d\n", PRINT("76 [%20.x]", 0x1234abcdu));
 	PRINT(" %d\n", PRINT("77 [%20.0x]", -0x1234abcdu));
@@ -109,4 +108,50 @@ int	main(void)
 	PRINT(" %d\n", PRINT("81 [%1.X]", 0xee));
 	PRINT(" %d\n", PRINT("82 [%5.x]", 0xee));
 	PRINT(" %d\n", PRINT("83 [%5.X]", 0xee));
+	PRINT (" %d\n", PRINT("84 [%*.*x]", -444, -444, 0));
+	PRINT (" %d\n", PRINT("85 [%0*.*x]",   -444, -444, 0));
+	PRINT (" %d\n", PRINT("86 [%010.*x]", -444, 0));
+	PRINT (" %d\n", PRINT("87 [%5.*x]", -444,  0));
+	PRINT (" %d\n", PRINT("88 [%0*x]", -444, 7));
+	PRINT (" %d\n", PRINT("89 [%0*.*x]",   -444, -444, 7));
+	PRINT (" %d\n", PRINT("90 [%*.*x]", -5, -5, 0));
+	PRINT (" %d\n", PRINT("91 [%0*.*x]",   -5, -5, 0));
+	PRINT (" %d\n", PRINT("92 [%010.*x]", -5, 0));
+	PRINT (" %d\n", PRINT("93 [%5.*x]", -5,  0));
+	PRINT (" %d\n", PRINT("94 [%0*x]", -5, 7));
+	PRINT (" %d\n", PRINT("95 [%0*.*x]",   -5, -5, 7));
+	PRINT (" %d\n", PRINT("96 [%*.*x]", 0, 0, 0));
+	PRINT (" %d\n", PRINT("97 [%0*.*x]",   0, 0, 0));
+	PRINT (" %d\n", PRINT("98 [%010.*x]", 0, 0));
+	PRINT (" %d\n", PRINT("99 [%5.*x]", 0,  0));
+	PRINT (" %d\n", PRINT("100 [%0*x]", 0, 7));
+	PRINT (" %d\n", PRINT("101 [%0*.*x]",   0, 0, 7));
+	PRINT (" %d\n", PRINT("-84 [%*.*X]", -444, -444, 0));
+	PRINT (" %d\n", PRINT("-85 [%0*.*X]",   -444, -444, 0));
+	PRINT (" %d\n", PRINT("-86 [%010.*X]", -444, 0));
+	PRINT (" %d\n", PRINT("-87 [%5.*X]", -444,  0));
+	PRINT (" %d\n", PRINT("-88 [%0*X]", -444, 7));
+	PRINT (" %d\n", PRINT("-89 [%0*.*X]",   -444, -444, 7));
+	PRINT (" %d\n", PRINT("-90 [%*.*X]", -5, -5, 0));
+	PRINT (" %d\n", PRINT("-91 [%0*.*X]",   -5, -5, 0));
+	PRINT (" %d\n", PRINT("-92 [%010.*X]", -5, 0));
+	PRINT (" %d\n", PRINT("-93 [%5.*X]", -5,  0));
+	PRINT (" %d\n", PRINT("-94 [%0*X]", -5, 7));
+	PRINT (" %d\n", PRINT("-95 [%0*.*X]",   -5, -5, 7));
+	PRINT (" %d\n", PRINT("-96 [%*.*X]", 0, 0, 0));
+	PRINT (" %d\n", PRINT("-97 [%0*.*X]",   0, 0, 0));
+	PRINT (" %d\n", PRINT("-98 [%010.*X]", 0, 0));
+	PRINT (" %d\n", PRINT("-99 [%5.*X]", 0,  0));
+	PRINT (" %d\n", PRINT("-100 [%0*X]", 0, 7));
+	PRINT (" %d\n", PRINT("-101 [%0*.*X]",   0, 0, 7));
+	PRINT (" %d\n", PRINT("102 [%0*.*x]", 5, 10, 7));
+	PRINT (" %d\n", PRINT("103 [%0*.*x]", -5, -10, -7));
+	PRINT (" %d\n", PRINT("104 [%0*.*x]", -5, 10, -7));
+	PRINT (" %d\n", PRINT("105 [%0*.*x]", 5, -10, -7));
+	PRINT (" %d\n", PRINT("106 [%*.*x]", -5, -10, -7));
+	PRINT (" %d\n", PRINT("-102 [%0*.*x]", 5, 10, 7));
+	PRINT (" %d\n", PRINT("-103 [%0*.*x]", -5, -10, -7));
+	PRINT (" %d\n", PRINT("-104 [%0*.*x]", -5, 10, -7));
+	PRINT (" %d\n", PRINT("-105 [%0*.*x]", 5, -10, -7));
+	PRINT (" %d\n", PRINT("-106 [%*.*x]", -5, -10, -7));
 }

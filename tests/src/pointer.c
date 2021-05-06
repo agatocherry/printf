@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/06 14:34:40 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/06 16:06:37 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ int	main(void)
 	PRINT(" %d\n", PRINT("24 [%p]", NULL));
 	PRINT(" %d\n", PRINT("25 [%15p]", NULL));
 	PRINT(" %d\n", PRINT("26 [%-15p]", NULL));
+	PRINT(" %d\n", PRINT("27 [%*p]", -444, 0));
+	PRINT(" %d\n", PRINT("28 [%*p]", -444, NULL));
+	PRINT(" %d\n", PRINT("29 [%*p]", -444, i));
+	PRINT(" %d\n", PRINT("30 [%*p]", 444, 0));
+	PRINT(" %d\n", PRINT("31 [%*p]", 444, NULL));
+	PRINT(" %d\n", PRINT("32 [%*p]", 444, i));
 }
