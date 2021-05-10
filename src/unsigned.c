@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:31:22 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/10 17:39:46 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,43 +42,44 @@ static void	process(t_flags flags[4], int len, int *display, int nb)
 
 static void	pre_pre_process(int *len, int *display, t_flags flags[4], int *save)
 {
-	if (flags[2].count != -1 && flags[2].negative == 1 && flags[3].count != -1)
+	pre_process_unsigned(len, display, flags, save);
+	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len
+	&& flags[0].negative == 0)
+		flags[0].count -= (*len - flags[3].count);
+	if (flags[0].count != -1 && flags[3].count > flags[0].count
+	&& flags[3].count > *len)
 	{
-		flags[1].count = flags[2].count;
-		flags[2].count = -1;
+		flags[2].count = flags[3].count;
 		flags[3].count = -1;
-		*save = -1;
+		flags[0].count = -1;
 	}
-	if (flags[2].count != -1 && flags[3].count != -1 && flags[3].negative == 1)
+	if (flags[0].count != -1 && flags[3].count > flags[0].count
+	&& flags[3].count > *len)
 	{
+		flags[2].count = flags[3].count;
 		flags[3].count = -1;
-		*save = -1;
+		flags[0].count = -1;
 	}
-	else if (flags[2].count != -1 && flags[3].count != -1)
+	if (flags[0].count != -1 && flags[3].count < flags[0].count
+	&& flags[3].count > *len && flags[0].negative == 1)
 	{
-		flags[0].count = flags[2].count;
-		flags[2].count = -1;
-	}
-	if (flags[2].count != -1 && flags[2].negative == 1)
-	{
-		flags[1].count = flags[2].count;
-		flags[2].count = -1;
+		flags[2].count = flags[3].count;
+		flags[1].count -= flags[2].count;
+		flags[3].count = -1;
 	}
 }
 
 static void	pre_process(int *len, int *display, t_flags flags[4], int *save)
 {
 	pre_pre_process(len, display, flags, save);
-	if (flags[0].count != -1 && flags[3].count != -1 && flags[3].negative == 1)
+	if (flags[0].count != -1 && flags[3].count == flags[0].count
+	&& flags[3].count > *len && flags[0].negative == 1)
 	{
+		flags[2].count = flags[3].count;
 		flags[3].count = -1;
-		*save = -1;
+		flags[0].count = -1;
 	}
-	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len)
-	{
-		flags[0].count -= (*len - flags[3].count);
-	}
-	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count != -1)
+	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count > 0)
 	{
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;

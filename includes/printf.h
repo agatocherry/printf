@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:32:09 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/10 17:35:07 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void			arguments_init(t_arguments arguments[9]);
 
 int				nb_unsi(unsigned long nb);
 void			ft_putunbr(int n);
+void			pre_process_unsigned(int *len, int *display, t_flags flags[4], int *save);
 
 /*
 ** flags.c
