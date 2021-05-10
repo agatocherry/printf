@@ -27,8 +27,7 @@ PRINTF = src/arguments.c \
 		 src/printf.c \
 		 src/utils.c \
 		 src/percent.c src/char.c src/string.c src/int.c src/unsigned.c src/pointer.c src/hexa_lower.c src/hexa_upper.c
-SRC = ${STR} ${FD} ${MATH} ${MEM} ${LST} ${PRINTF}
-SRCS = ${SRC}
+SRCS = ${STR} ${FD} ${MATH} ${MEM} ${LST} ${PRINTF}
 OBJS = ${SRCS:.c=.o}
 
 #Rules

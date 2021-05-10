@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/06 14:39:39 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/10 10:06:45 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 static void	process(t_flags flags[4], int len, int *display)
 {
+	if (flags[0].count != -1 && flags[0].negative == 1)
+	{
+		flags[1].count = flags[0].count;
+		flags[0].count = -1;
+	}
 	while (flags[0].count > len)
 	{
 		ft_putchar(' ');

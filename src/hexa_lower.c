@@ -6,28 +6,46 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/05 14:59:55 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/10 11:30:01 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	pre_process(int *len, int *display, t_flags flags[4])
+static void	pre_pre_process(int *len, int *display, t_flags flags[4])
 {
-	if (flags[2].count != -1 && flags[3].count != -1)
-	{
-		flags[0].count = flags[2].count;
-		flags[2].count = -1;
-	}
-	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len)
-	{
-		flags[0].count -= (*len - flags[3].count);
-	}
-	if (flags[0].count != -1 && flags[0].negative == 1)
+	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count != -1)
 	{
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;
+		flags[3].count = -1;
 	}
+	if (flags[2].count != -1 && flags[2].negative == 1 && flags[3].count != -1)
+	{
+		flags[1].count = flags[2].count;
+		flags[2].count = -1;
+	}
+}
+
+static void	pre_process(int *len, int *display, t_flags flags[4])
+{
+	pre_pre_process(len, display, flags);
+	if (flags[2].count != -1 && flags[2].negative == 1)
+	{
+		flags[1].count = flags[2].count;
+		flags[2].count = -1;
+	}
+	if (flags[3].count != 1 && flags[3].negative == 1)
+		flags[3].count = -1;
+	else if (flags[2].count != -1 && flags[3].count != -1)
+	{
+		flags[0].count = flags[2].count;
+		flags[2].count = -1;
+		if (flags[3].count == 0)
+			flags[0].count++;
+	}
+	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len)
+		flags[0].count -= (*len - flags[3].count);
 }
 
 static void	process(t_flags flags[4], int len, int *display, int no_put)
