@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:02:52 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/10 11:56:39 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 int	main(void)
 {
+	char	c = 'a';
+	int		ii = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -9999999;
+	char	*n = "abcdefghijklmnop";
+	PRINT(" %d\n", PRINT("0 [%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X]", ii, j, k, l, m, n, c, c, j, j, j));
 	// Lower
 	PRINT(" %d\n", PRINT("1 [%x]", 1));
 	PRINT(" %d\n", PRINT("2 [%05x]", 1));
@@ -157,4 +165,26 @@ int	main(void)
 	PRINT (" %d\n", PRINT("-99 [%5.*X]", 0,  0));
 	PRINT (" %d\n", PRINT("-100 [%0*X]", 0, 7));
 	PRINT (" %d\n", PRINT("-101 [%0*.*X]",   0, 0, 7));
+	int	i;
+	int array[] = {-444, -5, 0, -0, 7, 222, 555};
+	i = 0;
+	while (i < 7)
+	{
+		PRINT (" %d\n", PRINT("10 [%*x]", array[i], 0));
+		PRINT (" %d\n", PRINT("11 [%*x]", array[i], 6));
+		PRINT (" %d\n", PRINT("12 [%*x]", array[i], 451));
+		PRINT (" %d\n", PRINT("13 [%*x]", array[i], 2000000));
+		PRINT (" %d\n", PRINT("13 [%*X]", array[i], 4294967295));
+		i++;
+	}
+	i = 0;
+	while (i < 7)
+	{
+		PRINT (" %d\n", PRINT("10 [%*X]", array[i], 0));
+		PRINT (" %d\n", PRINT("11 [%*X]", array[i], 6));
+		PRINT (" %d\n", PRINT("12 [%*X]", array[i], 451));
+		PRINT (" %d\n", PRINT("13 [%*X]", array[i], 2000000));
+		PRINT (" %d\n", PRINT("13 [%*X]", array[i], 4294967295));
+		i++;
+	}
 }

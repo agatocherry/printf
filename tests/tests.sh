@@ -110,6 +110,7 @@ then
 		cd ../.. && make fclean
 		exit 1
 	fi
+	gcc ../src/pointer_advenced.c ../../libftprintf.a -Wall -Werror -Wextra -fsanitize=address -g3 -w && ./a.out
 fi
 
 if [ $var = "d" ]
