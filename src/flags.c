@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/11 14:37:27 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 17:47:09 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,34 @@ int			isflags(char c)
 	return (0);
 }
 
+const char	*is_neg(t_flags *flags, const char *str, int len)
+{
+	if (flags->count < 0)
+	{
+		flags->count *= -1;
+		flags->negative = 1;
+	}
+	while (len > 0)
+	{
+		str++;
+		len--;
+	}
+	return (str);
+}
+
 const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 {
 	int	len;
+	int	is_dash;
 
+	is_dash = 0;
 	len = 0;
 	while (str[len] == '-')
-		str++;
-	if (*str == '*')
+	{
+		is_dash++;
+		len++;
+	}
+	if (str[len] == '*')
 	{
 		flags->is_star = 1;
 		flags->count = (int)va_arg(parameters, int);
@@ -34,19 +54,16 @@ const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 	}
 	else
 	{
+		if (is_dash != 0)
+			len -= is_dash;
 		while (ft_isdigit(str[len]))
 			len++;
 		flags->count = ft_atoi(str);
 	}
-	if (flags->count < 0)
-	{
-		flags->count *= -1;
-		flags->negative = 1;
-	}
-	return (&str[len]);
+	return (is_neg(flags, str, len));
 }
 
-const char	*search_flags(const char *str, int *display,
+char		*search_flags(const char *str, int *display,
 			t_flags flags[4], va_list parameters)
 {
 	int	i;

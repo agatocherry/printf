@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 17:35:07 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 17:41:51 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,9 @@ void			pre_process_unsigned(int *len, int *display, t_flags flags[4], int *save)
 ** flags.c
 */
 
-const char		*search_flags(const char *str, int *display,
-				t_flags flags[4], va_list parameters);
 int				isflags(char c);
-const char		*get_number(const char *str, t_flags *flags,
-				va_list parameters);
+char			*search_flags(const char *str, int *display,
+				t_flags flags[4], va_list parameters);
 
 /*
 ** arguments.c

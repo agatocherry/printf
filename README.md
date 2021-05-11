@@ -28,9 +28,9 @@ Printf is a [42 school](https://www.42.fr/) project. It consists to recode the [
 
 <!-- How install the repository and make -->
 ### Installing
-Clone the repository and its dependencies :
+Clone the repository :
 ```console
-$ git clone --recursive https://github.com/agatocherry/printf.git
+$ git clone https://github.com/agatocherry/printf.git
 ```
 <!-- Note for myself : the command for add git module, is : `git submodule add https://github.com/agatocherry/libft.git` -->
 
