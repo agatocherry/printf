@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/11 11:03:54 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 11:31:28 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,14 @@ void		argument_hexa_upper(int *display, va_list parameters,
 			t_flags flags[4])
 {
 	int			len;
-	long int	pointer;
+	unsigned int	pointer;
 	int			save;
 	int			no_put;
 
 	no_put = 0;
 	save = 0;
-	pointer = va_arg(parameters, long int);
-	len = ft_hexalen(pointer);
+	pointer = va_arg(parameters, unsigned int);
+	len = ft_hexalen((long)pointer);
 	if (pointer == 0)
 		len++;
 	if (pointer == 0 && flags[3].count == 0)
@@ -124,7 +124,7 @@ void		argument_hexa_upper(int *display, va_list parameters,
 	pre_process(&len, display, flags);
 	process(flags, len, display, no_put);
 	if (save != 0 || no_put == 0)
-		ft_puthexa_upper(pointer);
+		ft_puthexa_upper((long)pointer);
 	if (no_put == 1)
 		len--;
 	end_process(flags, len, display, save);
