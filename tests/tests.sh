@@ -104,13 +104,13 @@ if [ $var = "p" ]
 then
 	bash pointer.sh
 	exit_status=$?
+	gcc ../src/pointer_advenced.c ../../libftprintf.a -Wall -Werror -Wextra -fsanitize=address -g3 -w && ./a.out
 	if [ $exit_status = 1 ]
 	then
 		rm -rf a.out && rm -rf a.out.dSYM 
 		cd ../.. && make fclean
 		exit 1
 	fi
-	gcc ../src/pointer_advenced.c ../../libftprintf.a -Wall -Werror -Wextra -fsanitize=address -g3 -w && ./a.out
 fi
 
 if [ $var = "d" ]

@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:30:01 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 11:03:47 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 static void	pre_pre_process(int *len, int *display, t_flags flags[4])
 {
-	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count != -1)
+	if (flags[2].count != -1 && flags[3].count == 0 && flags[3].is_star == 1)
+		flags[2].count -= (*len - 1);
+	if (flags[0].count != -1 && flags[0].negative == 1)
+	{
+		flags[1].count = flags[0].count;
+		flags[0].count = -1;
+	}
+	else if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count != -1)
 	{
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;
@@ -117,7 +124,7 @@ void		argument_hexa_lower(int *display, va_list parameters,
 	pre_process(&len, display, flags);
 	process(flags, len, display, no_put);
 	if (save != 0 || no_put == 0)
-		ft_puthexa(pointer, "0123456789abcdef");
+		ft_puthexa_lower(pointer);
 	if (no_put == 1)
 		len--;
 	end_process(flags, len, display, save);

@@ -11,7 +11,8 @@ STR =	libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
 		libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c \
 		libft/ft_substr.c libft/ft_tolower.c libft/ft_toupper.c \
 		libft/ft_putchar.c libft/ft_putnstr.c libft/ft_putstr.c \
-		libft/ft_putnbr.c libft/ft_putuint.c libft/ft_puthexa.c
+		libft/ft_putnbr.c libft/ft_putuint.c libft/ft_puthexa_lower.c \
+		libft/ft_puthexa_upper.c
 FD =	libft/ft_putchar_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c
 MATH =	libft/ft_atoi.c libft/ft_itoa.c libft/ft_antoi.c \
 		libft/ft_nblen.c libft/ft_hexalen.c 

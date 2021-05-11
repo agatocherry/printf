@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 10:06:45 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 11:07:32 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void		argument_pointer(int *display, va_list parameters, t_flags flags[4])
 	int			len;
 	long int	pointer;
 
-	pointer = va_arg(parameters, long int);
+	pointer = (long int)va_arg(parameters, long int);
 	len = ft_hexalen(pointer) + 2;
 	if ((void *)pointer == NULL && flags[3].count != 0)
 		len++;
 	process(flags, len, display);
 	if ((void *)pointer != NULL)
-		ft_puthexa(pointer, "0123456789abcdef");
+		ft_puthexa_lower(pointer);
 	else if (flags[3].count != 0)
 		ft_putchar('0');
 	while (flags[1].count > len)

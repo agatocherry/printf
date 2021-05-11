@@ -10,4 +10,6 @@ int	main(void)
 	printf("printf %d\n", printf("2 [%.p]", &ncm_p));
 	ft_printf("ft_printf %d\n", ft_printf("3 [%-p]", &ncm_p));
 	printf("printf %d\n", printf("3 [%-p]", &ncm_p));
+	ft_printf("ft_printf %d\n", ft_printf("Hexa [%x]", 10000000000));
+	printf("printf %d\n", printf("Hexa [%x]", 10000000000));
 }

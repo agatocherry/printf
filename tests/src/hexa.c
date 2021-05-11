@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:56:39 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 10:40:08 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,16 +171,20 @@ int	main(void)
 	while (i < 7)
 	{
 		PRINT (" %d\n", PRINT("10 [%*x]", array[i], 0));
+		PRINT (" %d\n", PRINT("10.test %d [%010.*x]", array[i], array[i], 0));
+		PRINT (" %d\n", PRINT("11.test %d [%010.*x]", array[i], array[i], 50));
 		PRINT (" %d\n", PRINT("11 [%*x]", array[i], 6));
 		PRINT (" %d\n", PRINT("12 [%*x]", array[i], 451));
 		PRINT (" %d\n", PRINT("13 [%*x]", array[i], 2000000));
-		PRINT (" %d\n", PRINT("13 [%*X]", array[i], 4294967295));
+		PRINT (" %d\n", PRINT("13 [%*x]", array[i], 4294967295));
 		i++;
 	}
 	i = 0;
 	while (i < 7)
 	{
 		PRINT (" %d\n", PRINT("10 [%*X]", array[i], 0));
+		PRINT (" %d\n", PRINT("10.test %d [%010.*X]", array[i], array[i], 0));
+		PRINT (" %d\n", PRINT("11.test %d [%010.*X]", array[i], array[i], 50));
 		PRINT (" %d\n", PRINT("11 [%*X]", array[i], 6));
 		PRINT (" %d\n", PRINT("12 [%*X]", array[i], 451));
 		PRINT (" %d\n", PRINT("13 [%*X]", array[i], 2000000));
