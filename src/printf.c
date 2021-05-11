@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:39 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/15 17:51:15 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 14:10:57 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int		ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str == '%')
-		{
 			str = search_flags(str, &display, flags, parameters);
-		}
 		else
 		{
 			ft_putchar(*str);

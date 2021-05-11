@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 17:39:46 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/11 14:27:39 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,20 @@ void		argument_unsigned(int *display, va_list parameters,
 	save = flags[3].count;
 	nb = va_arg(parameters, unsigned int);
 	len = nb_unsi(nb);
+	//
+	// int i;
+	// i = 0;
+	// ft_putstr("\n----\n");
+	// while (i < 4)
+	// {
+	// 	ft_putchar(flags[i].c);
+	// 	ft_putstr(" : ");
+	// 	ft_putnbr(flags[i].count);
+	// 	ft_putstr("\n");
+	// 	i++;
+	// }
+	// ft_putstr("----\n");
+	//
 	if (nb == 0)
 		len++;
 	if (nb == 0 && flags[3].count == 0)
