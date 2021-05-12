@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/11 17:47:09 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 14:26:24 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 	return (is_neg(flags, str, len));
 }
 
-char		*search_flags(const char *str, int *display,
+const char		*search_flags(const char *str, int *display,
 			t_flags flags[4], va_list parameters)
 {
 	int	i;
