@@ -6,16 +6,20 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/11 17:47:48 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:31:56 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	pre_pre_process(int *len, int *display, t_flags flags[4])
+static void	pre_pre_process(int *len, int *display, t_flags flags[4], unsigned int pointer)
 {
+	if (flags[3].count == 0 && flags[0].count != 1 && flags[0].negative == 1
+	&& flags[0].is_star == 1 && pointer == 0)
+		flags[0].count--;
 	if (flags[2].count != -1 && flags[3].count == 0 && flags[3].is_star == 1)
-		flags[2].count -= (*len - 1);
+		if (pointer != 0)
+			flags[2].count -= 1;
 	if (flags[0].count != -1 && flags[0].negative == 1)
 	{
 		flags[1].count = flags[0].count;
@@ -35,9 +39,9 @@ static void	pre_pre_process(int *len, int *display, t_flags flags[4])
 	}
 }
 
-static void	pre_process(int *len, int *display, t_flags flags[4])
+static void	pre_process(int *len, int *display, t_flags flags[4], unsigned int pointer)
 {
-	pre_pre_process(len, display, flags);
+	pre_pre_process(len, display, flags, pointer);
 	if (flags[2].count != -1 && flags[2].negative == 1)
 	{
 		flags[1].count = flags[2].count;
@@ -122,7 +126,7 @@ void		argument_hexa_upper(int *display, va_list parameters,
 		no_put = 1;
 	if (flags[3].count > len)
 		save = flags[3].count;
-	pre_process(&len, display, flags);
+	pre_process(&len, display, flags, pointer);
 	process(flags, len, display, no_put);
 	if (save != 0 || no_put == 0)
 		ft_puthexa_upper((long)pointer);
