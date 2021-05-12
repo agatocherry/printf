@@ -6,20 +6,16 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 14:40:03 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:40:13 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	pre_process(t_flags flags[4], int len, int *display)
-{
-
-}
-
 static void	process(t_flags flags[4], int len, int *display)
 {
-	pre_process(flags, len, display);
+	if (flags[3].count != -1 && flags[3].negative == 1)
+		flags[3].count = -1;
 	if (flags[0].count != -1 && flags[0].negative == 1)
 	{
 		flags[1].count = flags[0].count;
