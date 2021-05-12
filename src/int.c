@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 16:32:14 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 17:31:41 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	process(t_flags flags[4], int len, int if_neg, int *display)
 	}
 }
 
-static void	some_correction(t_flags flags[4])
+static void	some_correction(t_flags flags[4], int len, int nb, int *no_put)
 {
 	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count == 0)
 		flags[3].count = -1;
@@ -44,6 +44,9 @@ static void	some_correction(t_flags flags[4])
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;
 	}
+	if (flags[1].count != -1 && flags[3].count == 0)
+		if (nb != 0)
+			flags[1].count -= len;
 	if (flags[3].count != -1 && flags[3].is_star == 1 && flags[3].negative == 1)
 	{
 		flags[3].count = -1;
@@ -57,14 +60,14 @@ static void	some_correction(t_flags flags[4])
 
 static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
 {
-	some_correction(flags);
 	if (flags[1].count != -1 && flags[3].count != -1)
 	{
 		if (flags[3].count > len || flags[3].count == 0)
 		{
 			flags[1].count -= flags[3].count;
 			flags[1].count += len;
-			flags[1].count -= if_neg;
+			if (flags[3].count != 0)
+				flags[1].count -= if_neg;
 		}
 	}
 	while (flags[0].count > len && flags[0].count > (flags[3].count + if_neg))
@@ -102,8 +105,9 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 		if_neg = 1;
 	if (flags[3].count == 0 && nb == 0)
 		no_put = 1;
-	if (no_put == 1 && flags[0].count != -1)
+	if (no_put == 1 && (flags[0].count != -1 || flags[2].count != -1 || flags[1].count != -1))
 		len--;
+	some_correction(flags, len, nb, &no_put);
 	pre_process(len, display, flags, if_neg);
 	if (flags[0].space == 1 || flags[1].space == 1 || flags[2].space == 1 || flags[3].space == 1)
 	{
@@ -118,5 +122,6 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 	process(flags, len, if_neg, display);
 	if (no_put == 0)
 		ft_putunbr(nb);
+	
 	end_process(flags, len, no_put, display);
 }
