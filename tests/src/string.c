@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/05 15:19:01 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 21:04:09 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int	main(void)
 	PRINT(" %d\n", PRINT("37 [%*s]", -5, "aloa"));
 	PRINT(" %d\n", PRINT("38 [%*.*s]", -444, -444, "aloa"));
 	PRINT(" %d\n", PRINT("39 [%*.*s]", -5, -10, "sd"));
+	PRINT(" %d\n", PRINT("40 [%09s]","hi low"));
 	return (0);
 }
