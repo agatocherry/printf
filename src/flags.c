@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 14:52:47 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:32:52 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ const char	*is_neg(t_flags *flags, const char *str, int len)
 	return (str);
 }
 
-const char	*get_number(const char *str, t_flags *flags, va_list parameters)
+const char	*get_number(int *display, const char *str, t_flags *flags, va_list parameters)
 {
 	int	len;
 	int	is_dash;
@@ -48,6 +48,11 @@ const char	*get_number(const char *str, t_flags *flags, va_list parameters)
 	}
 	while (str[len] == '0')
 		len++;
+	while (str[len] == ' ')
+	{
+		flags->space = 1;
+		len++;
+	}
 	if (str[len] == '*')
 	{
 		flags->is_star = 1;
@@ -75,8 +80,13 @@ const char		*search_flags(const char *str, int *display,
 	i = 0;
 	str++;
 	flags_init(flags);
+	while (*str == ' ')
+	{
+		flags[0].space = 1;
+		str++;
+	}
 	if ((ft_isdigit(*str) || *str == '*') && *str != '0')
-		str = get_number(str, &flags[0], parameters);
+		str = get_number(display, str, &flags[0], parameters);
 	while (isflags(*str))
 	{
 		i = 0;
@@ -84,7 +94,7 @@ const char		*search_flags(const char *str, int *display,
 		{
 			if (*str == flags[i].c)
 			{
-				str = get_number(++str, &flags[i], parameters);
+				str = get_number(display, ++str, &flags[i], parameters);
 				break ;
 			}
 			i++;

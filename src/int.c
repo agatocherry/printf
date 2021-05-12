@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/10 11:27:00 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:32:14 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,11 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 	if (no_put == 1 && flags[0].count != -1)
 		len--;
 	pre_process(len, display, flags, if_neg);
+	if (flags[0].space == 1 || flags[1].space == 1 || flags[2].space == 1 || flags[3].space == 1)
+	{
+		*display += 1;
+		ft_putchar(' ');
+	}
 	if (nb < 0)
 	{
 		ft_putchar('-');
