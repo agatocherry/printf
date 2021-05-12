@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 17:31:41 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/12 17:40:46 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ static void	pre_process(int len, int *display, t_flags flags[4], int if_neg)
 {
 	if (flags[1].count != -1 && flags[3].count != -1)
 	{
-		if (flags[3].count > len || flags[3].count == 0)
+		if (flags[3].count >= len || flags[3].count == 0)
 		{
-			flags[1].count -= flags[3].count;
+			flags[1].count -= (flags[3].count);
 			flags[1].count += len;
 			if (flags[3].count != 0)
 				flags[1].count -= if_neg;
