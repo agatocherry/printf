@@ -6,82 +6,47 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 17:50:34 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:19:26 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	pre_pre_process(int *len, int *display, t_flags flags[4], unsigned int pointer)
+static void	if_flag_is_neg(t_flags flags[4])
 {
-	if (flags[3].count == 0 && flags[0].count != 1 && flags[0].negative == 1
-	&& flags[0].is_star == 1 && pointer == 0)
-		flags[0].count--;
-	if (flags[2].count != -1 && flags[3].count == 0 && flags[3].is_star == 1)
-		if (pointer != 0)
-			flags[2].count -= 1;
-	if (flags[0].count != -1 && flags[0].negative == 1)
+	if (flags[0].count != -1 && flags[0].is_star == 1 && flags[0].negative == 1)
 	{
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;
 	}
-	else if (flags[0].count != -1 && flags[0].negative == 1
-	&& flags[3].count != -1)
-	{
-		flags[1].count = flags[0].count;
-		flags[0].count = -1;
-		flags[3].count = -1;
-	}
-	if (flags[2].count != -1 && flags[2].negative == 1 && flags[3].count != -1)
+	if (flags[2].count != -1 && flags[2].is_star == 1 && flags[2].negative == 1)
 	{
 		flags[1].count = flags[2].count;
 		flags[2].count = -1;
 	}
+	if (flags[3].count != -1 && flags[3].negative == 1 && flags[0].is_star == 1)
+		flags[3].count = -1;
 }
 
-static void	pre_process(int *len, int *display, t_flags flags[4], unsigned int pointer)
+static void	process(t_flags flags[4], int len, int *display)
 {
-	pre_pre_process(len, display, flags, pointer);
-	if (flags[2].count != -1 && flags[2].negative == 1)
-	{
-		flags[1].count = flags[2].count;
-		flags[2].count = -1;
-	}
-	if (flags[3].count != 1 && flags[3].negative == 1)
-		flags[3].count = -1;
-	else if (flags[2].count != -1 && flags[3].count != -1 && flags[3].negative == 0)
+	if ((flags[3].count > 0 && flags[2].count != -1) || (flags[2].count != -1 && flags[3].count == 0))
 	{
 		flags[0].count = flags[2].count;
 		flags[2].count = -1;
-		if (flags[3].count == 0)
-			flags[0].count++;
 	}
-	else if (flags[2].count != -1 && flags[3].count != -1 && flags[3].negative == 1)
-		flags[3].count = -1;
-	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len)
-		flags[0].count -= (*len - flags[3].count);
-}
-
-static void	process(t_flags flags[4], int len, int *display, int no_put)
-{
 	if (flags[3].count > 0)
-	{
 		flags[2].count = flags[3].count;
-		flags[3].count = -4;
-		while (flags[0].count > flags[2].count)
-		{
-			ft_putchar(' ');
-			*display += 1;
-			flags[0].count--;
-		}
+	if (flags[0].count != -1 && flags[2].count > len)
+		flags[0].count -= (flags[2].count - len);
+	if (flags[1].count != -1 && flags[2].count > len)
+		flags[1].count -= (flags[2].count - len);
+	while (flags[0].count > len)
+	{
+		ft_putchar(' ');
+		*display += 1;
+		flags[0].count--;
 	}
-	else
-		while (flags[0].count > len)
-		{
-			ft_putchar(' ');
-			*display += 1;
-			flags[0].count--;
-		}
 	while (flags[2].count > len)
 	{
 		ft_putchar('0');
@@ -90,50 +55,26 @@ static void	process(t_flags flags[4], int len, int *display, int no_put)
 	}
 }
 
-static void	end_process(t_flags flags[4], int len, int *display, int save)
-{
-	if (flags[3].count == -4 && save != 0)
-		while (flags[1].count > save)
-		{
-			ft_putchar(' ');
-			*display += 1;
-			flags[1].count--;
-		}
-	else
-		while (flags[1].count > len)
-		{
-			ft_putchar(' ');
-			*display += 1;
-			flags[1].count--;
-		}
-}
-
 void		argument_hexa_upper(int *display, va_list parameters,
 			t_flags flags[4])
 {
 	int				len;
-	unsigned int	pointer;
-	int				save;
-	int				no_put;
+	unsigned int	n;
 
-	no_put = 0;
-	save = 0;
-	pointer = va_arg(parameters, unsigned int);
-	len = ft_hexalen((long)pointer);
-	if (pointer == 0)
+	n = (unsigned int)va_arg(parameters, unsigned int);
+	len = ft_hexalen(n);
+	if (len == 0 && flags[3].count != 0)
 		len++;
-	if (pointer == 0 && flags[3].count == 0)
-		flags[0].count++;
-	if (pointer == 0 && flags[3].count == 0)
-		no_put = 1;
-	if (flags[3].count > len)
-		save = flags[3].count;
-	pre_process(&len, display, flags, pointer);
-	process(flags, len, display, no_put);
-	if (save != 0 || no_put == 0)
-		ft_puthexa_upper((long)pointer);
-	if (no_put == 1)
-		len--;
-	end_process(flags, len, display, save);
-	*display += len;
+	if_flag_is_neg(flags);
+	process(flags, len, display);
+	if (n != 0 || (flags[3].count != 0 && n == 0))
+		ft_puthexa_upper(n);
+	while (flags[1].count > len)
+	{
+		ft_putchar(' ');
+		*display += 1;
+		flags[1].count--;
+	}
+	if (n != 0 || (flags[3].count != 0 && n == 0))
+		*display += len;
 }

@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 16:12:59 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:19:48 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int	main(void)
 	PRINT(" %d\n", PRINT("19 [%08.5x]", 34));
 	PRINT(" %d\n", PRINT("20 [%08.5x]", 0));
 	PRINT(" %d\n", PRINT("21 [%08.3x]", 8375));
+	PRINT(" %d\n", PRINT("21.t [%08.7x]", 8375));
 	PRINT(" %d\n", PRINT("22 [%.0x]", 0));
 	PRINT(" %d\n", PRINT("23 [%.x]", 0));
 	PRINT(" %d\n", PRINT("24 [%5.0x]", 0));
-	PRINT(" %d\n", PRINT("25 [%5.x]", 0));
+	PRINT(" %d\n", PRINT("25 [%5.x]", 222));
 	PRINT(" %d\n", PRINT("26 [%-5.0x]", 0));
 	PRINT(" %d\n", PRINT("27 [%-5.x]", 0));
 	PRINT(" %d\n", PRINT("28 [%3x]", 0));
@@ -73,8 +74,9 @@ int	main(void)
 	PRINT(" %d\n", PRINT("75 [%-8.3X]", 8375));
 	PRINT(" %d\n", PRINT("76 [%20.x]", 0x1234abcdu));
 	PRINT(" %d\n", PRINT("77 [%20.0x]", -0x1234abcdu));
+	PRINT(" %d\n", PRINT("41 [%.x]", 0));
 	PRINT(" %d\n", PRINT("82 [%5.x]", 0xee));
-	PRINT (" %d\n", PRINT("84 [%*.*x]", -444, -444, 0));
+	PRINT (" %d\n", PRINT("84 [%*.*x]", -444, -4, 0));
 	PRINT (" %d\n", PRINT("85 [%0*.*x]", -444, -444, 0));
 	PRINT (" %d\n", PRINT("86 [%010.*x]", -444, 0));
 	PRINT (" %d\n", PRINT("87 [%5.*x]", -444,  0));
@@ -88,6 +90,7 @@ int	main(void)
 	PRINT (" %d\n", PRINT("95 [%0*.*x]",   -5, -5, 7));
 	PRINT (" %d\n", PRINT("96 [%*.*x]", 0, 0, 0));
 	PRINT (" %d\n", PRINT("97 [%0*.*x]",   0, 0, 0));
+	//
 	PRINT (" %d\n", PRINT("98 [%010.*x]", 0, 0));
 	PRINT (" %d\n", PRINT("99 [%5.*x]", 0,  0));
 	PRINT (" %d\n", PRINT("100 [%0*x]", 0, 7));
@@ -103,7 +106,7 @@ int	main(void)
 	PRINT (" %d\n", PRINT("-104 [%0*.*x]", -5, 10, -7));
 	PRINT (" %d\n", PRINT("-105 [%0*.*x]", 5, -10, -7));
 	PRINT (" %d\n", PRINT("-106 [%*.*x]", -5, -10, -7));
-	// Upper
+	// // Upper
 	PRINT(" %d\n", PRINT("1 [%X]", 1));
 	PRINT(" %d\n", PRINT("2 [%05X]", 1));
 	PRINT(" %d\n", PRINT("3 [%.5X]", 1));
@@ -231,4 +234,18 @@ int	main(void)
 	PRINT (" %d\n", PRINT("115 [%-4.*x]", 3, 12));
 	PRINT (" %d\n", PRINT("116 [%-4.*x]", 4, 12));
 	PRINT (" %d\n", PRINT("117 [%*.*x]", -4, 0, 12));
+	PRINT (" %d\n", PRINT("118 [%.*x]", -4, 12));
+	PRINT (" %d\n", PRINT("118 [%.*x]", -3, 12));
+	int x = 82;
+	PRINT	("	%d\n",	PRINT("-->|%-4.4x|<--\n", x));
+	PRINT (" %d\n", PRINT("-->|%-4x|<--\n", x));
+	PRINT (" %d\n", PRINT("-->|%-4.x|<--\n", x));
+	PRINT (" %d\n", PRINT("-->|%-4.*x|<--\n", -4, x));
+	PRINT (" %d\n", PRINT("-->|%-4.*x|<--\n", -3, x));
+	PRINT (" %d\n", PRINT("-->|%.*x|<--\n", -4, x));
+	PRINT (" %d\n", PRINT("-->|%.*x|<--\n", -3, x));
+	PRINT (" %d\n", PRINT("-->|%.*x|<--\n", -2, x));
+	PRINT (" %d\n", PRINT("-->|%.*x|<--\n", -1, x));
+	PRINT (" %d\n", PRINT("-->|%.*x|<--\n", 0, x));
+	PRINT (" %d\n", PRINT("-->|%-3.*x|<--\n", -4, x));
 }
