@@ -1,27 +1,5 @@
-# Name
-
 NAME = libftprintf.a
 
-# Paths and files
-
-STR =	libft/ft_isalnum.c libft/ft_isalpha.c libft/ft_isascii.c \
-		libft/ft_isdigit.c libft/ft_isprint.c libft/ft_strdup.c \
-		libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlcpy.c \
-		libft/ft_strlen.c libft/ft_strmapi.c libft/ft_strncmp.c \
-		libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strtrim.c \
-		libft/ft_substr.c libft/ft_tolower.c libft/ft_toupper.c \
-		libft/ft_putchar.c libft/ft_putnstr.c libft/ft_putstr.c \
-		libft/ft_putnbr.c libft/ft_putuint.c libft/ft_puthexa_lower.c \
-		libft/ft_puthexa_upper.c
-FD =	libft/ft_putchar_fd.c libft/ft_putendl_fd.c libft/ft_putnbr_fd.c
-MATH =	libft/ft_atoi.c libft/ft_itoa.c libft/ft_antoi.c \
-		libft/ft_nblen.c libft/ft_hexalen.c 
-MEM =	libft/ft_bzero.c libft/ft_calloc.c libft/ft_memccpy.c \
-		libft/ft_memchr.c libft/ft_memcpy.c \
-		libft/ft_memcmp.c libft/ft_memmove.c libft/ft_memset.c
-LST =	libft/ft_lstadd_back.c libft/ft_lstadd_front.c libft/ft_lstclear.c \
-		libft/ft_lstdelone.c libft/ft_lstiter.c libft/ft_lstlast.c \
-		libft/ft_lstmap.c libft/ft_lstnew.c libft/ft_lstsize.c
 PRINTF = src/arguments.c \
 		 src/flags.c \
 		 src/init.c \
@@ -29,14 +7,10 @@ PRINTF = src/arguments.c \
 		 src/utils.c src/utils_u.c \
 		 src/percent.c src/char.c src/string.c src/int.c src/unsigned.c src/pointer.c src/hexa_lower.c src/hexa_upper.c
 SRCS = ${STR} ${FD} ${MATH} ${MEM} ${LST} ${PRINTF}
-OBJS = ${SRCS:.c=.o}
 
 OBJS = ${SRCS:.c=.o}
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I includes/ -I libft/
-
-NAME = libftprintf.a
 RM	= rm -rf
 
 .c.o:	
@@ -49,13 +23,16 @@ $(NAME):	${OBJS}
 	@mv libft/libft.a libftprintf.a
 	@ar rc ${NAME} ${OBJS}
 	@ranlib ${NAME}
+	@echo "Compiling $(NAME) done"
 
 clean:
 	@make -C libft/ -f Makefile clean
 	@${RM} ${OBJS}
+	@echo "! Removed objects files"
 
 fclean:		clean
 	@make -C libft/ -f Makefile fclean
 	@${RM} ${NAME}
+	@echo "! Removed $(NAME)"
 
 re:			fclean all
