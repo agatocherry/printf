@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:39 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 12:04:26 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 12:09:01 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	no_cspdiux(t_flags flags[4], int *display, const char *str)
 		{
 			while (flags[1].count > 1)
 			{
-				
 				ft_putchar(' ');
 				*display += 1;
 				flags[1].count--;
