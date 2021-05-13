@@ -31,29 +31,31 @@ PRINTF = src/arguments.c \
 SRCS = ${STR} ${FD} ${MATH} ${MEM} ${LST} ${PRINTF}
 OBJS = ${SRCS:.c=.o}
 
-#Rules
+OBJS = ${SRCS:.c=.o}
 
-all : $(NAME)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I includes/ -I libft/
 
-.c.o:
-	@$(CC) $(CFLAGS) -I includes -c $< -o $(<:.c=.o)
+NAME = libftprintf.a
+RM	= rm -rf
 
-$(NAME) : $(OBJS)
-	@ar rc $@ $^
-	@echo "Compiling $(NAME) done"
+.c.o:	
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-# Delete :
-debug :
-	@cd tests && bash tests.sh all
+all:		${NAME}
 
-clean :
-	@echo "! Removed objects files"
-	@rm -rf $(OBJS)
+$(NAME):	${OBJS}
+	@make -C libft/
+	@mv libft/libft.a libftprintf.a
+	@ar rc ${NAME} ${OBJS}
+	@ranlib ${NAME}
 
-fclean : clean
-	@echo "! Removed $(NAME)"
-	@rm -rf $(NAME)
+clean:
+	@make -C libft/ -f Makefile clean
+	@${RM} ${OBJS}
 
-re : fclean all
+fclean:		clean
+	@make -C libft/ -f Makefile fclean
+	@${RM} ${NAME}
 
-.PHONY: all clean fclean re
+re:			fclean all

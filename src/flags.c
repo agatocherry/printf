@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:54:40 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 18:25:43 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 19:11:35 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ const char		*get_number(int len, const char *str,
 	return (is_neg(flags, str, len));
 }
 
-const char		*pass(int *display, const char *str,
+const char		*pass(const char *str,
 				t_flags *flags, va_list parameters)
 {
 	int	len;
@@ -85,7 +85,7 @@ const char		*search_flags_second(const char *str, int *display,
 		{
 			if (*str == flags[i].c)
 			{
-				str = pass(display, ++str, &flags[i], parameters);
+				str = pass(++str, &flags[i], parameters);
 				break ;
 			}
 			i++;
@@ -106,7 +106,7 @@ const char		*search_flags(const char *str, int *display,
 		str++;
 	}
 	if ((ft_isdigit(*str) || *str == '*') && *str != '0')
-		str = pass(display, str, &flags[0], parameters);
+		str = pass(str, &flags[0], parameters);
 	str = search_flags_second(str, display, flags, parameters);
 	return (str);
 }

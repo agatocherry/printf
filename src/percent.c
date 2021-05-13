@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/04/22 15:27:30 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 19:16:26 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		argument_percent(int *display, va_list parameters, t_flags flags[4])
 	int	len;
 
 	len = 1;
+	(void)parameters;
 	process(flags, len, display);
 	ft_putchar('%');
 	while (flags[1].count > len)

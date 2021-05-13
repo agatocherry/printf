@@ -6,13 +6,13 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 18:37:03 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 19:17:19 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	some_correction(t_flags flags[4], int len, int nb, int *no_put)
+static void	some_correction(t_flags flags[4], int len, int nb)
 {
 	if (flags[0].count != -1 && flags[0].negative == 1 && flags[3].count == 0)
 		flags[3].count = -1;
@@ -105,7 +105,7 @@ void		argument_int(int *display, va_list parameters, t_flags flags[4])
 	if (no_put == 1 && (flags[0].count != -1
 	|| flags[2].count != -1 || flags[1].count != -1))
 		len--;
-	some_correction(flags, len, nb, &no_put);
+	some_correction(flags, len, nb);
 	pre_process(len, display, flags, if_neg);
 	end_argument_int(display, flags, nb);
 	process_int(flags, len, if_neg, display);

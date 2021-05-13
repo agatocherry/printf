@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:19:25 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/11 17:33:05 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 19:17:54 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	process(t_flags flags[4], int len, int *display, int nb)
 	}
 }
 
-static void	pre_pre_process(int *len, int *display, t_flags flags[4], int *save)
+static void	pre_pre_process(int *len, t_flags flags[4], int *save)
 {
-	pre_process_unsigned(len, display, flags, save);
+	pre_process_unsigned(flags, save);
 	if (flags[0].count != -1 && flags[3].count > 0 && flags[3].count < *len
 	&& flags[0].negative == 0)
 		flags[0].count -= (*len - flags[3].count);
@@ -69,9 +69,9 @@ static void	pre_pre_process(int *len, int *display, t_flags flags[4], int *save)
 	}
 }
 
-static void	pre_process(int *len, int *display, t_flags flags[4], int *save)
+static void	pre_process(int *len, t_flags flags[4], int *save)
 {
-	pre_pre_process(len, display, flags, save);
+	pre_pre_process(len, flags, save);
 	if (flags[0].count != -1 && flags[3].count == flags[0].count
 	&& flags[3].count > *len && flags[0].negative == 1)
 	{
@@ -133,7 +133,7 @@ void		argument_unsigned(int *display, va_list parameters,
 		len++;
 	if (nb == 0 && flags[3].count == 0)
 		no_put = 1;
-	pre_process(&len, display, flags, &save);
+	pre_process(&len, flags, &save);
 	process(flags, len, display, nb);
 	if (save != 0 || no_put == 0)
 		ft_putuint(nb);

@@ -6,13 +6,13 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:23:26 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 12:10:44 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 19:16:49 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	pre_process(int len, int *display, t_flags flags[4])
+static void	pre_process(t_flags flags[4])
 {
 	if (flags[0].count != -1 && flags[0].negative == 1)
 	{
@@ -56,7 +56,7 @@ void		argument_string(int *display, va_list parameters, t_flags flags[4])
 		len = 6;
 	else
 		len = ft_strlen(str);
-	pre_process(len, display, flags);
+	pre_process(flags);
 	process(flags, &len, display);
 	if (str == NULL)
 		ft_putnstr("(null)", len);
