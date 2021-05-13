@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 15:38:53 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 16:32:41 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 13:00:54 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void		flags_init(t_flags flags[4])
 	flags[2].c = '0';
 	flags[2].space = 0;
 	flags[2].count = -1;
+	flags[2].is_star = 0;
 	flags[2].negative = 0;
 	flags[3].c = '.';
 	flags[3].space = 0;
