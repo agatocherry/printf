@@ -1,5 +1,7 @@
 ft_printf_test				[x]
 42TESTERS-PRINTF			[x]
 pft_2019					[x]
-printf_lover_v2				[ ]
+printf_lover_v2				[x]
 tests451					[x]
+printf-tester				[x]
+test_printf_classic			[x]

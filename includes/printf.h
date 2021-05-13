@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:19 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 16:27:17 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 18:36:27 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int				ft_printf(const char *str, ...);
 
 void			flags_init(t_flags flags[4]);
 void			arguments_init(t_arguments arguments[9]);
-
+void		process_int(t_flags flags[4], int len, int if_neg, int *display);
 /*
 ** utils.c
 */

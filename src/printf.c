@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:25:39 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 17:38:24 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 18:39:20 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 static int	cspdiux(char c)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X' || c == '%')
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd'
+	|| c == 'i' || c == 'u' || c == 'x'
+	|| c == 'X' || c == '%')
 		return (1);
 	return (0);
 }
 
-int		ft_printf(const char *str, ...)
+int			ft_printf(const char *str, ...)
 {
 	int		display;
 	t_flags	flags[4];

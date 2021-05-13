@@ -6,13 +6,14 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 14:46:34 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/13 12:45:54 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 18:38:14 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-static void	process(t_flags flags[4], int len, int *display, long int pointer)
+static void	pre_process(t_flags flags[4], int len,
+			int *display, long int pointer)
 {
 	if (flags[3].count != -1 && flags[3].negative == 1)
 		flags[3].count = -1;
@@ -33,6 +34,10 @@ static void	process(t_flags flags[4], int len, int *display, long int pointer)
 		flags[1].count = flags[0].count;
 		flags[0].count = -1;
 	}
+}
+
+static void	process(t_flags flags[4], int len, int *display, long int pointer)
+{
 	while (flags[0].count > len)
 	{
 		ft_putchar(' ');
@@ -65,6 +70,7 @@ void		argument_pointer(int *display, va_list parameters, t_flags flags[4])
 	len = ft_hexalen(pointer) + 2;
 	if ((void *)pointer == NULL && flags[3].count != 0)
 		len++;
+	pre_process(flags, len, display, pointer);
 	process(flags, len, display, pointer);
 	if ((void *)pointer != NULL)
 		ft_puthexa_lower(pointer);
