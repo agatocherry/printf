@@ -6,7 +6,7 @@
 /*   By: agcolas <agcolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:02:43 by agcolas           #+#    #+#             */
-/*   Updated: 2021/05/12 21:05:27 by agcolas          ###   ########.fr       */
+/*   Updated: 2021/05/13 12:03:41 by agcolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,18 @@ int	main(void)
 		c++;
 	}
 	PRINT(" %d\n", PRINT("11 [%-5]"));
+	PRINT(" %d\n", PRINT("11.t [%-5.3]"));
 	PRINT(" %d\n", PRINT("12 [%-05]"));
 	PRINT(" %d\n", PRINT("13 [%05]"));
 	PRINT(" %d\n", PRINT("14 [%5]"));
-	PRINT(" %d\n", PRINT("15 [%]"));
+	PRINT(" %d\n", PRINT("15.t [%.4]"));
+	PRINT(" %d\n", PRINT("12.t [%-05.0]"));
+	PRINT(" %d\n", PRINT("13.t [%05.4]"));
+	PRINT(" %d\n", PRINT("14.t [%5.2]"));
+	PRINT(" %d\n", PRINT("15.t [%.1]"));
+	PRINT(" %d\n", PRINT("12 [%-05"));
+	PRINT(" %d\n", PRINT("13 [%05"));
+	PRINT(" %d\n", PRINT("14 [%5"));
+	PRINT(" %d\n", PRINT("15 [%"));
 	return (0);
 }
